@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> 
+<head> 
+<title>Print Order - Hybrid-Portal Sales Center Portal</title> 
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="HAPedit 3.1" /> 
+<script type="text/javascript">
+  var SessionID = '<dl:Session ID>';
+</script>
+
+
+</head> 
+<body > 
+<input type=hidden id="ajaxresponse" value="" />
+
+<!--Begin Container--> 
+<div id="container"> 
+ 
+	<!--Begin Wrapper--> 
+    <div id="wrapper"> 
+	
+    	<!--Begin Header--> 
+			<div id="header"><div align=right></div> 
+			
+				
+            </div> 
+		<!--End Header--> 
+		
+		
+    	
+        <!--Begin Div Main--> 
+    	<div id="main"> 
+		    <div id="AjaxError"></div>
+		
+			
+			<dl:SessionView Key="OrderType" Value="Email">
+            <dl:Session Key="Note">
+			This email address is not monitored, if you have any questions please email <a href="mailto:<dl:Session Key="sales.profile.PORTALEXTERNALEMAILNOTIFICATION">"><dl:Session Key="sales.PROFILE.PORTALEXTERNALEMAILNOTIFICATION" htmlencode></a><br />           
+			</dl:SessionView>
+			
+			<dl:DataSet Name="activeorder" TableName="header">
+			<dl:DataSetRow>
+            
+			
+			<p style="font-size:24px;font-weight:bold;color:#000;border-bottom:1px solid #000;padding-bottom:5px;">Hybrid Portal Sales Center</p>
+			<p style="margin:5px 0px;font-size:20px;font-weight:bold;"><dl:DataSetColumn DataSet="Customermaster" Name="FLNM2S"></p>
+			<p style="margin:5px 0px;font-size:18px;font-weight:bold;">Order Number: HYBRIDCC<dl:DataSetColumn Name=".orderid"></p>
+			
+			
+				
+			<!--Begin Div Billing-->
+			<div style="width:100%;height:auto;background:transparent;margin-bottom:5px;float:left;">			
+			    
+				<!--Begin Div BillingLeft-->
+				<div style="width:47%;height:auto;background:transparent;float:left;margin-right:5px;padding:0;">
+				
+			    <p style="font-size:16px;font-weight:bold;margin-bottom:5px;margin-top:5px;">Bill To Information:</p>
+			    <!-- bill to size -->
+			    <table width="100%"  border="1">
+			       <tr>
+			       <td>
+			       Name
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="BillToName">&nbsp;
+			       </td>
+			       </tr>
+			       <tr>
+			       <td>
+			       Address
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="BillToAddress">&nbsp;
+			       </td>
+			       </tr>
+				   <tr>
+			       <td>
+			       Address 2
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="BillToAddress2">&nbsp;
+			       </td>
+			       </tr>
+			       <tr>
+			       <td>
+			       City, State, Zip
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="BillToCity">, <dl:DataSetColumn Name="BillToState">&nbsp;&nbsp;<dl:DataSetColumn Name="BillToZip">&nbsp;
+			       </td>
+			       </tr>
+				   <!--<tr>
+			       <td>
+			       Country
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="BillToCountry">&nbsp;
+			       </td>
+			       </tr>-->
+			       <tr>
+			       <td>
+			       Phone
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="BillToPhone">&nbsp;
+			       </td>
+			       </tr>
+			       
+			    </table>
+				
+				</div>
+				<!--End Div Billing Left-->
+			    
+			    <!-- ship to side -->
+				<!--Begin Div BillingRight-->
+				<div style="width:47%;height:auto;background:transparent;float:left;margin:0;padding:0;">
+				
+			    <p style="font-size:16px;font-weight:bold;margin-bottom:5px;margin-top:5px;">Ship To Information:</p>
+			    <!-- bill to size -->
+			    <table width="100%" border="1">
+			       <tr>
+			       <td>
+			       Name
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="ShipToName">&nbsp;
+			       </td>
+			       </tr>
+			       <tr>
+			       <td>
+			       Address
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="ShipToAddress">&nbsp;
+			       </td>
+			       </tr>
+				   <tr>
+			       <td>
+			       Address 2
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="ShipToAddress2">&nbsp;
+			       </td>
+			       </tr>
+			       <tr>
+			       <td>
+			       City, State, Zip
+			       </td>
+			       <td>
+			       <dl:DataSetColumn Name="ShipToCity">, <dl:DataSetColumn Name="ShipToState">&nbsp;&nbsp;<dl:DataSetColumn Name="ShipToZip">&nbsp;
+			       </td>
+			       </tr>
+			       <tr>
+			       <td>
+			       &nbsp;
+			       </td>
+			       <td>
+			       &nbsp;
+			       </td>
+			       </tr>
+			       
+			    </table>
+				</div>
+				<!--End Div BillingRight-->
+			    			 
+			</div>
+			<!--End Div Billing-->
+			
+			<div style="clear:both;"></div>
+			
+			<!--Begin Div OrderTerms-->
+			<div style="height:auto;width:100%;float:left;background:transparent;margin:5px 0px;">
+			
+			
+				<p style="font-size:16px;font-weight:bold;margin-bottom:5px;margin-top:5px;">Order Information:
+				<dl:Conditional>
+					<dl:ConditionalCondition><dl:DataSetColumn Name=".VPSINVOICEID"></dl:ConditionalCondition>
+					<dl:ConditionalValue>0</dl:ConditionalValue>
+					<dl:ConditionalDoesntMatchTemplate>
+					&nbsp; (Invoice # <dl:DataSetColumn Name=".VPSINVOICEID">)
+					</dl:ConditionalDoesntMatchTemplate>
+				</dl:Conditional>
+				</p>
+			    Order will ship from: Compton, CA 90221
+				<table style="border:1px solid #333333;padding:2px;">
+					<tr>
+					<td style="padding-right:2px;font-weight:bold;">Customer PO:</td>
+					<td style="padding-right:10px;"><dl:DataSetColumn Name="CustomerPO">&nbsp;</td>
+					<td style="padding-right:2px;font-weight:bold;">Terms:</td>
+					<td style="padding-right:10px;"><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="terms" ListSource="Column" ListSourceDataSet="CustomerMaster" ListSourceDataSetTableName="Terms" ListSourceValueColumn="PORTALTERMSCODE" ListSourceValueDisplayColumn="DESCRIPTION">&nbsp;													    		</td>
+					<td style="padding-right:2px;font-weight:bold;">Start Ship Date:</td>
+					<td style="padding-right:15px;"><dl:DataSetColumn Name="startshipdate" Format='{0:d}'><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="CanShipEarly" StaticValues="0,1" StaticNames=" ,(Can Ship Early)">&nbsp;</td>
+					<td style="padding-right:2px;font-weight:bold;">Cancel Date:</td>
+					<td style="padding-right:10px;"><dl:DataSetColumn Name="canceldate" Format='{0:d}'>&nbsp;</td>
+					<td style="padding-right:2px;font-weight:bold;">Ship Via:</td>
+					<td><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="shipvia" StaticValues="UP1,UP3,CRG" StaticNames="UPS Ground,UPS Ground Third Party,Customer Routing Guide">&nbsp;</td>
+					</tr>
+					<tr>
+					<td style="padding-right:2px;font-weight:bold;" colspan="2">Shipping Instructions:</td>
+					<td colspan="8"><dl:DataSetColumn Name="comments">&nbsp;</td>
+					</tr>
+					<dl:Conditional>
+						<dl:ConditionalCondition><dl:DataSetColumn Name="terms"></dl:ConditionalCondition>
+						<dl:ConditionalValue>wiretr</dl:ConditionalValue>
+					<dl:ConditionalMatchestemplate>
+					<tr>
+					<td class="tabletermsleft" colspan="2" valign=top>Wire Instructions:</td>
+					<td class="tabletermsright" colspan="8" valign=top>
+					Beneficiary:<br />
+					
+ Hybrid Promotions, LLC<br />
+ 
+Bank Name:
+ Wachovia Bank<br />
+ 
+Address:
+ 9001 Firestone Blvd., Suite 102 Downey, CA  90241<br />
+ 
+Branch:
+ Downey<br />
+ 
+Account #:
+ 2006000072564<br />
+ 
+Fed Routing No.:
+ 122287170<br />
+ 
+Swift Code:
+ PNBPUS33<br />
+ 
+
+					
+ 
+					</td>
+					</tr>
+					</dl:ConditionalMatchestemplate>
+					</dl:Conditional>
+					
+				</table>
+				
+			    
+			    
+			    
+			</div>
+			<!--End Div OrderTerms-->
+			
+			</dl:DataSetRow>
+			</dl:DataSet>
+			<!--Close Header DataSet-->
+			
+			<p style="font-size:16px;font-weight:bold;margin-bottom:5px;margin-top:5px;">Order Items:</p>
+			
+			<table border=1 width=100% bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1">
+				<tr class="tableheader">
+					<th style="background:#ddd;" width="21%" class="tableheader">Style</th>
+					<th style="background:#ddd;" width="14%" class="tableheader">Color</th>
+					<th style="background:#ddd;" width="55%" class="tableheader">Scale/Qty</th>
+					<th style="background:#ddd;" width="5%" class="tableheader">$ Each</th>
+					<th style="background:#ddd;" width="5%" class="tableheader">Extd</th>
+				</tr>
+
+    		<dl:DataSet Name="activeorder"  TableName="LineItems">
+    			<dl:DataSetRow>
+    			<tr>
+        			<td><dl:DataSetColumn Name=StyleNumber> <br /> <dl:DataSetColumn Name="Description"></td>
+					<td><dl:DataSetColumn Name=Color><input type=hidden id="LINECOST<dl:DataSetRowID>" value="<dl:DataSetColumn Name=Cost>" /></td>     
+					<td>
+					    <table border="1">
+					    <tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+					        <dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+					        <dl:DataSetRow>
+					        <td width=70 style="font-weight:bold;">
+					        <dl:DataSetColumn Name="SizeCode">
+					        </td>
+					        </dl:DataSetRow>
+					        </dl:DataSet>
+					        <td width=70>
+					        <B>Total</B>
+					        </td>
+					    </tr>
+					    <tr>
+					        <dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+					        <dl:DataSetRow>
+					        <td width=70>
+					        <dl:DataSetColumn Name="Quantity" format="{0:N0}">
+					        </td>
+					        </dl:DataSetRow>
+					        </dl:DataSet>
+					             <td width=70>
+					        <dl:DataSetColumn Name=".TotalQuantity" >
+					        </td>
+					    </tr>
+						</table>
+					 </td>     
+					 <td align=right>
+					 <dl:DataSetColumn Name=Cost FORMAT="{0:C}">
+					 </td>        
+					 <td align=right>
+					 <dl:DataSetColumn Name=".TotalRetail" FORMAT="{0:C}">
+					 </td>     
+					    
+				</tr>
+    			
+    		</dl:DataSetRow>	
+    			<dl:DataSetFooter>
+    		<tr>
+    			<td colspan=5 align=right><b>Total Ordered Units</b> <dl:DataSetColumnSummary Name=".TotalQuantity" ></td>
+    			</tr>
+    		</dl:DataSetFooter>				
+			</dl:DataSet>
+			
+			
+		</table>
+		
+            <table align="right" bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1" width="20%">
+            <dl:DataSet Name="activeorder" TableName="totals">
+			<dl:DataSetRow>
+			<tr>
+				<td colspan=4 align=RIGHT>
+				<b><dl:DataSetColumn Name="Description"></b>
+				</td>
+				<td align="right">
+				<dl:DataSetColumn Name="Amount" FORMAT="{0:C}">
+				</td>
+			</tr>
+			</dl:DataSetRow>
+			</dl:DataSet>
+			</table>
+										
+		</div> 
+		<!--End Div Main-->
+		
+		<div style="clear:both;"></div>
+		
+        <!--Begin Footer--> 
+    	<div id="footer"> 
+        	
+    	</div> 
+    	<!--End Footer--> 
+    
+    </div>    
+    <!--End Wrapper--> 
+    
+</div> 
+<!--End Container--> 
+ 
+	
+    
+</body> 
+
+</html>

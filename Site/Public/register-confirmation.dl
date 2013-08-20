@@ -1,0 +1,43 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+<script type="text/javascript">
+    var SessionID = '<dl:Session ID>';
+</script>
+</head>
+<body>
+<input type=hidden id="ajaxresponse" value="" />
+<header id="heading" role="banner" class="row">
+    <dl:Include File="NotLoggedIn-HeaderLogo.dlwe">
+</header>
+<section id="main" role="content" class="row" >
+    <div class='text twelvecol ' >
+        <div class='text fivecol ' >
+            <h2 class="company-title">
+                New Customer Registration
+            </h2>
+        </div>
+        <div id="AjaxError" style="font-weight:bold;">    </div>
+        <div class="row twelvecol" id="registration-form" >
+            <font color=red size=4><dl:Session Key="LastFormError"></font>
+           <p>Thank you, we should be contacting you shortly about the status of your applicaiton</p><br><br>
+	<!--	<p><font color=red><b>*** Note ***</b></font><br><br>
+
+Along with completing this online registration form you must fill out and send to Hybrid a credit 
+application form. Your account setup is incomplete until this form is received and reviewed by Hybrid.<br><br>  
+
+<a href="./private/CreditApp.pdf"><u>Click here</u></a> to download the new customer credit application.<br><br>
+
+Please return completed new customer credit applications to:<br><br>
+
+Liza Valenica<br>
+Email:  LValencia@HybridApparel.com<br>
+Fax:  714-952-3875</p>
+
+-->
+
+
+           <p><a class="btn-blue" href="./sales.notloggedin.dl" title="Hybrid Apparel">Home</a></p>
+        </div>
+
+    </div>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

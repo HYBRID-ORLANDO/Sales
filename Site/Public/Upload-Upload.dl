@@ -1,0 +1,40 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head>
+<body>	
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+
+<p style="font-size:16px;font-weight:bold;color:red;"><dl:Session Key="LastFormError"></p> 
+<p class="location-name">Upload Orders</p>
+
+    <table class="text" width=100% border=0 cellspacing=10 cellpadding=10 >
+    <tr>    
+        <td valign=top width=50%>
+                    
+            <p>1. Download the latest Excel Upload File Specification <a href="/static/images/PortalSystemUploadFileSpec.xls" target="_blank">click here</a></p>
+            <p>2. Please select a file to upload below.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Must be in Excel 97-2003 file format <b><i>.XLS</i></b></p><br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Excel 2007 and newer file format <b><i>.XLS<font color=red>X</font></i></b> is not supported</p>
+                    <p>3. Click on Upload File</p>
+        </td>
+        <td valign=center width=50%>
+        <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+        <td>        
+
+        <font size=3><img src="/static/images/icon_excel.jpg" border=0 align=middle> Excel File</font><br><br>
+            <form id="frm1" action="./sales.upload.dl?T=UploadHandler" enctype="multipart/form-data" method=post><input type=hidden name=t value="UploadHandler" />
+            <input size=40 type=file name="File" accept="*.xls" /><br /><br />
+            <a class="btn-blue" href="" onclick="document.getElementById('frm1').submit();return false;" value="Upload File">Upload File</a>
+            
+        </td></tr></table>
+            </td>
+        </tr>
+        </table>
+        <!--For more information on the file format required, please <a href="./UploadForamt.dlwe">click here</a>-->
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

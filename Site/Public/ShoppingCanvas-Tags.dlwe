@@ -1,0 +1,28 @@
+﻿		<dl:DataSet Name="activesearch"  TableName="ActiveSearch" dontgeneratewhenempty>
+   		<dl:DataSetHeader>
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Active Filters</u></div>
+		</dl:DataSetHeader>
+		<dl:DataSetRow>	
+		<dl:DataSetColumn Name=Value><a href="./sales.ShoppingCanvas.dl?T=RemoveSearch&ID=<dl:DataSetRowID>">&nbsp;&nbsp;<img border=0 src="../public/static/images/nav-x.gif"></a><br>
+		</dl:DataSetRow>
+		<dl:DataSetFooter>
+		<a  class="btn-blue-sm" href="./sales.ShoppingCanvas.dl?T=ClearSearch">Reset Filters</a><br><br>
+		</dl:DataSetFooter>
+		</dl:DataSet>
+
+
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Item Type</u></div>
+		<dl:DataSet Name=shoppingcanvas TableName=ITEMCATEGORYTYPE>
+		<dl:Include File="ShoppingCanvas-Options.dlwe">
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Licenses</u></div>
+		<dl:DataSet Name=shoppingcanvas TableName=LICENSES>
+		<dl:Include File="ShoppingCanvas-Options.dlwe">
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Category</u></div>
+		<dl:DataSet Name=shoppingcanvas TableName=CATEGORY>
+		<dl:Include File="ShoppingCanvas-Options.dlwe">
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Gender</u></div>
+		<dl:DataSet Name=shoppingcanvas TableName=GENDER>
+		<dl:Include File="ShoppingCanvas-Options.dlwe">
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Colors</u></div>
+		<dl:DataSet Name=shoppingcanvas TableName=COLORS>
+		<dl:Include File="ShoppingCanvas-Options.dlwe">

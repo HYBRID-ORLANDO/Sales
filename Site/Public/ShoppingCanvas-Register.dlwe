@@ -1,0 +1,196 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+    </head>
+    <body>
+    <header id="heading" role="banner" class="row">
+        <dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+    </header>
+    <section id="main" role="content" class="row" >
+        <div class='text twelvecol ' >
+
+
+            <div class='text fivecol ' >
+                <h2 class="company-title">
+                    New Customer Registration
+                </h2>
+            </div>
+            <div class="row twelvecol" >
+                <font color=red size=4><dl:Session Key="LastFormError"></font>
+                <form name="header"  action="./hybrid.customer.dl" method=post><input type=hidden value="Add" name="T" />
+                <p class="location-name">Customer Information</p>
+                
+                    <table class="formtable" border="1" width="70%">
+                        <tr>
+                            <td class="formtableleft">Full Customer Name:</td>
+                            <td class="formtableright"><input type="text" size="30" name="fullname" id="fullname" value=""  /></td>
+                            <td class="formtableleft">Short Customer Name:</td>
+                            <td class="formtableright"><input type="text" size="15"  name="shortname" id="shortname" value="" /></td>
+                        </tr>                  
+                        <tr>
+                            <td class="formtableleft">Billing Address 1:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ADDRESS1" id="ADDRESS1"  value=""/></td>
+                            <td class="formtableleft">Billing Address 2:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ADDRESS2" id="ADDRESS2" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">City, State</td>
+                            <td class="formtableright" >
+                                <input type="text" size="20" name="CITY" id="CITY" value=""/>
+                                <select id="STATE" name=state   >
+                                <option value=AL >AL</option><option value=AK >AK</option><option value=AZ >AZ</option><option value=AR >AR</option><option value=CA >CA</option><option value=CO >CO</option><option value=CT >CT</option><option value=DE >DE</option><option value=DC >DC</option><option value=FL >FL</option><option value=GA >GA</option><option value=HI >HI</option><option value=ID >ID</option><option value=IL >IL</option><option value=IN >IN</option><option value=IA >IA</option><option value=KS >KS</option><option value=KY >KY</option><option value=LA >LA</option><option value=ME >ME</option><option value=MD >MD</option><option value=MA >MA</option><option value=MI >MI</option><option value=MN >MN</option><option value=MS >MS</option><option value=MO >MO</option><option value=MT >MT</option><option value=NE >NE</option><option value=NV >NV</option><option value=NH >NH</option><option value=NJ >NJ</option><option value=NM >NM</option><option value=NY >NY</option><option value=NC >NC</option><option value=ND >ND</option><option value=OH >OH</option><option value=OK >OK</option><option value=OR >OR</option><option value=PA >PA</option><option value=RI >RI</option><option value=SC >SC</option><option value=SD >SD</option><option value=TN >TN</option><option value=TX >TX</option><option value=UT >UT</option><option value=VT >VT</option><option value=VA >VA</option><option value=WA >WA</option><option value=WV >WV</option><option value=WI >WI</option><option value=WY >WY</option></select>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Zip:</td>
+                            <td class="formtableright" >
+                                <input type="text" size="5" name="ZIP" value="" id="ZIP"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Federal ID #:</td>
+                            <td class="formtableright"><input type="text" size="30" name="FederalID" id="FederalID"  value=""/></td>
+                            <td class="formtableleft">Resale #:</td>
+                            <td class="formtableright"><input type="text" size="30" name="Resale" id="Resale"  value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Duns #:</td>
+                            <td class="formtableright"><input type="text" size="30" name="Duns" id="Duns"  value=""/></td>
+                            <td class="formtableleft">Year Established:</td>
+                            <td class="formtableright"><input type="text" size="30" name="YearEstb" id="YearEstb"  value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Phone:</td>
+                            <td class="formtableright"><input type="text" size="30" name="PHONE" id="PHONE" value=""/></td>
+                             <td class="formtableleft">Fax:</td>
+                            <td class="formtableright"><input type="text" size="30" name="FAX" id="Fax" value=""/></td>
+                        </tr>
+                    </table>
+                    <p class="location-name">Trade References</p>
+                
+                    <table class="formtable" border="1" width="70%">
+                        <tr>
+                            <td class="formtableleft">Reference Full Name:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ref1name" id="ref1name" value=""  /></td>
+                            <td class="formtableleft">Reference Full Name:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ref2name" id="ref2name" value=""  /></td>
+                        </tr>                  
+                        <tr>
+                            <td class="formtableleft">Address :</td>
+                            <td class="formtableright"><input type="text" size="30" name="Ref1ADDRESS" id="Ref1ADDRESS"  value=""/></td>
+                            <td class="formtableleft">Address:</td>
+                            <td class="formtableright"><input type="text" size="30" name="Ref2ADDRESS" id="RefADDRESS" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">City, State</td>
+                            <td class="formtableright" >
+                                <input type="text" size="20" name="ref1CITY" id="ref1CITY" value=""/>
+                                <select id="ref1STATE" name=ref1state   >
+                                <option value=AL >AL</option><option value=AK >AK</option><option value=AZ >AZ</option><option value=AR >AR</option><option value=CA >CA</option><option value=CO >CO</option><option value=CT >CT</option><option value=DE >DE</option><option value=DC >DC</option><option value=FL >FL</option><option value=GA >GA</option><option value=HI >HI</option><option value=ID >ID</option><option value=IL >IL</option><option value=IN >IN</option><option value=IA >IA</option><option value=KS >KS</option><option value=KY >KY</option><option value=LA >LA</option><option value=ME >ME</option><option value=MD >MD</option><option value=MA >MA</option><option value=MI >MI</option><option value=MN >MN</option><option value=MS >MS</option><option value=MO >MO</option><option value=MT >MT</option><option value=NE >NE</option><option value=NV >NV</option><option value=NH >NH</option><option value=NJ >NJ</option><option value=NM >NM</option><option value=NY >NY</option><option value=NC >NC</option><option value=ND >ND</option><option value=OH >OH</option><option value=OK >OK</option><option value=OR >OR</option><option value=PA >PA</option><option value=RI >RI</option><option value=SC >SC</option><option value=SD >SD</option><option value=TN >TN</option><option value=TX >TX</option><option value=UT >UT</option><option value=VT >VT</option><option value=VA >VA</option><option value=WA >WA</option><option value=WV >WV</option><option value=WI >WI</option><option value=WY >WY</option></select>
+                            </td>
+                             <td class="formtableleft">City, State</td>
+                            <td class="formtableright" >
+                                <input type="text" size="20" name="ref2CITY" id="ref2CITY" value=""/>
+                                <select id="ref2STATE" name=state   >
+                                <option value=AL >AL</option><option value=AK >AK</option><option value=AZ >AZ</option><option value=AR >AR</option><option value=CA >CA</option><option value=CO >CO</option><option value=CT >CT</option><option value=DE >DE</option><option value=DC >DC</option><option value=FL >FL</option><option value=GA >GA</option><option value=HI >HI</option><option value=ID >ID</option><option value=IL >IL</option><option value=IN >IN</option><option value=IA >IA</option><option value=KS >KS</option><option value=KY >KY</option><option value=LA >LA</option><option value=ME >ME</option><option value=MD >MD</option><option value=MA >MA</option><option value=MI >MI</option><option value=MN >MN</option><option value=MS >MS</option><option value=MO >MO</option><option value=MT >MT</option><option value=NE >NE</option><option value=NV >NV</option><option value=NH >NH</option><option value=NJ >NJ</option><option value=NM >NM</option><option value=NY >NY</option><option value=NC >NC</option><option value=ND >ND</option><option value=OH >OH</option><option value=OK >OK</option><option value=OR >OR</option><option value=PA >PA</option><option value=RI >RI</option><option value=SC >SC</option><option value=SD >SD</option><option value=TN >TN</option><option value=TX >TX</option><option value=UT >UT</option><option value=VT >VT</option><option value=VA >VA</option><option value=WA >WA</option><option value=WV >WV</option><option value=WI >WI</option><option value=WY >WY</option></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Zip:</td>
+                            <td class="formtableright" >
+                                <input type="text" size="5" name="ref1ZIP" value="" id="ref1ZIP"/>
+                            </td>
+                             <td class="formtableleft">Zip:</td>
+                            <td class="formtableright" >
+                                <input type="text" size="5" name="ref2ZIP" value="" id="ref2ZIP"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Phone:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ref1PHONE" id="ref1PHONE" value=""/></td>
+                             <td class="formtableleft">Phone:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ref2PHONE" id="ref2PHONE" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Contact Person:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ref1CONTACT" id="ref1CONTACT" value=""/></td>
+                             <td class="formtableleft">Contact Person:</td>
+                            <td class="formtableright"><input type="text" size="30" name="ref2CONTACT" id="ref2CONTACT" value=""/></td>
+                        </tr>
+                    </table>
+                     <p class="location-name">Banking Information</p>
+                    <table class="formtable" border="1" width="70%">
+                        <tr>
+                            <td class="formtableleft">Bank Name:</td>
+                            <td class="formtableright"><input type="text" size="30" name="bankname" id="bankname" value=""  /></td>
+                            <td class="formtableleft">Account Number:</td>
+                            <td class="formtableright"><input type="text" size="15"  name="accountno" id="accountno" value="" /></td>
+                        </tr>                  
+                        <tr>
+                            <td class="formtableleft">Bank Address:</td>
+                            <td class="formtableright"><input type="text" size="30" name="BankADDRESS1" id="BANKADDRESS"  value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">City, State</td>
+                            <td class="formtableright" >
+                                <input type="text" size="20" name="BANKCITY" id="BANKCITY" value=""/>
+                                <select id="BANKSTATE" name=state   >
+                                <option value=AL >AL</option><option value=AK >AK</option><option value=AZ >AZ</option><option value=AR >AR</option><option value=CA >CA</option><option value=CO >CO</option><option value=CT >CT</option><option value=DE >DE</option><option value=DC >DC</option><option value=FL >FL</option><option value=GA >GA</option><option value=HI >HI</option><option value=ID >ID</option><option value=IL >IL</option><option value=IN >IN</option><option value=IA >IA</option><option value=KS >KS</option><option value=KY >KY</option><option value=LA >LA</option><option value=ME >ME</option><option value=MD >MD</option><option value=MA >MA</option><option value=MI >MI</option><option value=MN >MN</option><option value=MS >MS</option><option value=MO >MO</option><option value=MT >MT</option><option value=NE >NE</option><option value=NV >NV</option><option value=NH >NH</option><option value=NJ >NJ</option><option value=NM >NM</option><option value=NY >NY</option><option value=NC >NC</option><option value=ND >ND</option><option value=OH >OH</option><option value=OK >OK</option><option value=OR >OR</option><option value=PA >PA</option><option value=RI >RI</option><option value=SC >SC</option><option value=SD >SD</option><option value=TN >TN</option><option value=TX >TX</option><option value=UT >UT</option><option value=VT >VT</option><option value=VA >VA</option><option value=WA >WA</option><option value=WV >WV</option><option value=WI >WI</option><option value=WY >WY</option></select>
+                               
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="formtableleft">Zip:</td>
+                            <td class="formtableright" >
+                                <input type="text" size="5" name="BANKZIP" value="" id="BANKZIP"/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="formtableleft">Phone:</td>
+                            <td class="formtableright"><input type="text" size="30" name="BANKPHONE" id="BANKPHONE" value=""/></td>
+                             <td class="formtableleft">Fax:</td>
+                            <td class="formtableright"><input type="text" size="30" name="BANKFAX" id="BANKFax" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Contact Person:</td>
+                            <td class="formtableright"><input type="text" size="30" name="BANKCONTACT" id="BANKCONTACT" value=""/></td>
+                        </tr>
+                    </table>
+                    <p class="location-name">Profile</p>
+                    <table class="formtable" border="1" width="70%">
+                        
+                        <tr>
+                            <td class="formtableleft">Email:</td>
+                            <td class="formtableright"><input type="text" size="30" name="email" id="email" value=""  /></td>
+                            <td class="formtableleft">Confirm Email:</td>
+                            <td class="formtableright"><input type="text" size="30"  name="emailcomf" id="emailcomf" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td class="formtableleft">Password:</td>
+                            <td class="formtableright"><input type="text" size="30" name="password" id="password" value=""  /></td>
+                            <td class="formtableleft">Confirm Password:</td>
+                            <td class="formtableright"><input type="text" size="30"  name="passwordcomf" id="passwordcomf" value="" /></td>
+                        </tr>                                    
+                    </table>
+
+
+                    
+                    <ul class="submitbuttons">
+                    <li><input type=image src="./static/images/btn_submitform.jpg" name="submit"  value="Send Form" />              </li>
+                    
+                    </ul>
+                    <br />
+                </form>
+                <p class="formheader"> Please remember to send in the credit application after creating the customer. </p>
+
+            <p class="formheader">New Customer Credit App Form      
+       To submit a new customer, please download the form below:<br />
+                <a href="./static/CreditApp.pdf">Credit Application</a><br />
+                and fax it to Liza Valencia at 714-952-3875</p>     
+                
+
+                
+            </div>
+
+        </div>
+    </section>
+    <dl:Include File="ShoppingCanvas-Footer.dlwe">

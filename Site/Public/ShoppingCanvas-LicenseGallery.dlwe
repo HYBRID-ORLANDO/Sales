@@ -1,0 +1,34 @@
+﻿<dl:DataSetHeader><table border=0 cellspacing=0 cellpadding=0 width=100% name=maintable id=maintable><tr><td></dl:DataSetHeader>
+<dl:DataSetRow><div id="menu" style="height:160px;width:120px;float:left;"><table border=0 cellspacing=0 cellpadding=0 name="table<dl:dataSetColumn Name=ARTMASTERID>" id="table<dl:dataSetColumn Name=ARTMASTERID>">
+					<tr>
+						<td><img  src="./public/static/images/spacer.png" border="0" width=1 height=120></td>
+						<td rowspan=2>
+                            <img class="layer1" id="layer1" src="./public/static/images/spacer.png" border="0" width="120" height="1">
+						    <div style="font-size:9pt;line-height:110%;text-align: center;">
+                                <div  style="position:relative" class="screenshot"  rel="<dl:DataSetColumn Name='LICENSEIMGURL' />" target="_blank" >
+                                    <div>
+                                        <div style="position:relative;">
+                                           <a  timeout="false" href="./sales.ShoppingCanvas.dl?T=Start&Tag=<dl:DatasetColumn Name="LICENSE" />&Type=License" >
+                                               <img id="layer1" height=69 width=113  border=0  src="<dl:DataSetColumn Name='LICENSEIMGURL' />">
+                                               <div style="background:#ccc;padding-top:-15px;position:absolute;bottom:10%;left:40%;"> </div>
+                                           </a>
+                                       </div>
+                                       <div>      <br/>
+                                           <a class="quickview screenshot" timeout="false" href="./sales.ShoppingCanvas.dl?T=Start&Tag=<dl:DatasetColumn Name="LICENSE" />&Type=License" >
+                                                <dl:DatasetColumn Name="LICENSE" /></b></font>
+                                           </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+						</td>
+						<td valign=top align=left></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><img id="layer1" src="./public/static/images/spacer.png" border="0" width=30 height=30></td>
+					</tr>
+					</table></div></dl:DataSetRow>
+<dl:DataSetFooter></td></tr></table></dl:DataSetFooter>
+</dl:DataSet>
+

@@ -1,0 +1,11 @@
+<div style="width:100%;background:#333333;height:35px;float:left;">
+				<p style="color:#fff;font-size:14px;font-weight:bold;margin:7px 0px 0px 5px;width:50%;float:left;">Displaying <dl:DataSetStartRow>&nbsp;-&nbsp;<dl:DataSetEndRow> &nbsp;of <dl:DataSetRowCount>
+
+				<p style="color:#fff;font-size:14px;font-weight:bold;margin:7px 10px 0px 5px;width:40%;float:right;text-align:right;"> 
+				<a class="paginatorlink" href="javascript:getAjaxContent(0,'hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=1&rand=<dl:RandomString Length=50>&c=Enrollment&AJ=hybrid.customer.dl[t=paginate', 'selectcustomerajax', 1);"><< First</a>
+				<a class="paginatorlink" href="javascript:getAjaxContent(0,'hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=2&rand=<dl:RandomString Length=50>&c=Enrollment&AJ=hybrid.customer.dl[t=paginate', 'selectcustomerajax', 1);">< Previous</a> - 
+				<a class="paginatorlink" href="javascript:getAjaxContent(0,'hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=3&rand=<dl:RandomString Length=50>&c=Enrollment&AJ=hybrid.customer.dl[t=paginate', 'selectcustomerajax', 1);">Next ></a>
+				<a class="paginatorlink" href="javascript:getAjaxContent(0,'hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=4&rand=<dl:RandomString Length=50>&c=Enrollment&AJ=hybrid.customer.dl[t=paginate', 'selectcustomerajax', 1);">Last >></a></p>
+
+			
+</div>

@@ -1,0 +1,55 @@
+<dl:LoginView Type=0>
+	<h2><a href="./hybrid.walle.dl?t=create"><font color=white><U>Post Field Report</U></font></a></h2><BR>
+</dl:LoginView>
+
+<h2>Most Recent Reports</h2> 
+
+<dl:DataSet Name="Hybrid.RecentEntries">
+<dl:DataSetRow>
+<a href="./Hybrid.walle.dl?t=view&wallid=<dl:DataSetColumn Name=WallID>">
+<dl:DataSetColumn Name=Title sizelimittext="..." sizelimit=25></a><br>
+</dl:DataSetRow>
+</dl:DataSet>
+<a href="./Hybrid.walle.dl?t=Browse">View all</a>
+
+
+
+<h2>By Retailer</h2> 
+
+<dl:DataSet Name="Hybrid.LicenseList">
+<dl:DataSetRow>
+<a href="./Hybrid.walle.dl?t=Browse&By=1&id=<dl:DataSetColumn Name=LicenseID>">
+<dl:DataSetColumn Name=LicenseName sizelimittext="..." sizelimit=25></a><br>
+</dl:DataSetRow>
+</dl:DataSet>
+
+
+<h2>By Division</h2> 
+
+<dl:DataSet Name="Hybrid.DivisionList">
+<dl:DataSetRow>
+<a href="./Hybrid.walle.dl?t=Browse&By=2&id=<dl:DataSetColumn Name=DivisionID>">
+<dl:DataSetColumn Name=DivisionName sizelimittext="..." sizelimit=25></a><br>
+</dl:DataSetRow>
+</dl:DataSet>
+
+
+
+<dl:LoginView Type=0>
+        <h2>Sales Reps</h2> 
+<dl:DataSet Name="Hybrid.SalesPeople">
+<dl:DataSetRow>
+<a href="./hybrid.walle.dl?t=browse&by=3&id=<dl:DataSetColumn Name="RegistrationID">"><dl:DataSetColumn Name="DIsplayname"></a><br>
+</dl:DataSetRow>
+</dl:DataSet>
+
+</dl:LoginView>
+
+
+
+
+			</div> 
+
+				
+		
+    

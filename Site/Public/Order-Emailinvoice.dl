@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> 
+<head> 
+<title>Print Order - Hybrid-Portal Sales Center Portal</title> 
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="HAPedit 3.1" /> 
+<script type="text/javascript">
+  var SessionID = '<dl:Session ID>';
+</script>
+
+
+</head> 
+<body > 
+<input type=hidden id="ajaxresponse" value="" />
+
+<!--Begin Container--> 
+<div id="container"> 
+ 
+	<!--Begin Wrapper--> 
+    <div id="wrapper"> 
+	
+    	<!--Begin Header--> 
+			<div id="header"><div align=right></div> 
+			
+				
+            </div> 
+		<!--End Header--> 
+		
+		
+    	
+        <!--Begin Div Main--> 
+    	<div id="main"> 
+		    <div id="AjaxError"></div>
+		
+			
+			<dl:SessionView Key="OrderType" Value="Email">
+            	<p style="font-size:24px;font-weight:bold;color:#000;border-bottom:1px solid #000;padding-bottom:5px;">Hybrid-Portal Sales Center</p>
+			<p style="margin:5px 0px;font-size:20px;font-weight:bold;"><dl:DataSetColumn DataSet="Customermaster" Name="FLNM2S"></p>
+			<p style="margin:5px 0px;font-size:18px;font-weight:bold;">Invoice Number: <dl:Session Key="InvoiceID"></p>
+            <br />
+            Please find attached a copy of your invoice.<br /><br />
+
+            <dl:Session Key="Note">
+			This email address is not monitored, if you have any questions please email <a href="mailto:<dl:Session Key="sales.profile.PORTALEXTERNALEMAILNOTIFICATION">"><dl:Session Key="sales.PROFILE.PORTALEXTERNALEMAILNOTIFICATION" htmlencode></a><br />           
+			</dl:SessionView>
+			
+
+            
+			
+		
+			
+			
+	
+										
+		</div> 
+		<!--End Div Main-->
+		
+		<div style="clear:both;"></div>
+		
+        <!--Begin Footer--> 
+    	<div id="footer"> 
+        	
+    	</div> 
+    	<!--End Footer--> 
+    
+    </div>    
+    <!--End Wrapper--> 
+    
+</div> 
+<!--End Container--> 
+ 
+	
+    
+</body> 
+
+</html>

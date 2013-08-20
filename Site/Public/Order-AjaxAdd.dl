@@ -1,0 +1,298 @@
+<!-- the div is always needed -->
+<div id="additemajax" name="additemajax">
+
+<p class="sectionheader">Add Order Items:</p>
+
+<!--Step 1-- Select Division -->
+
+
+</dl:SessionView>
+
+<dl:SessionView Key="CreateAjaxStep" Value="division">
+
+<!--Begin Order Wrapper-->
+<div class="orderwrapper">
+
+<ul class="steps">
+    <li class="stepsactive">Step 1: Select Style</li>
+	<li class="stepsnext">Step 2: Enter Order Quantities</li>	
+</ul>
+
+<!--Begin Div Active1-->
+<div class="active1">
+	<ul>
+		<li class="step">Step 1: Select a Style</li>
+		<li>                
+			<select name="stylenumber" onchange='SelectStyleNumber();' id="stylenumber">
+            <option value="">Select Style Number</option>
+    			<dl:DataSet Name="order-addlineitem"  >
+     				<dl:DataSetRow>
+      				<option value="<dl:DataSetColumn Name="StyleNumber">"><dl:DataSetColumn Name="StyleNumber">&nbsp;-&nbsp; <dl:DataSetColumn Name="StyleDescription"></option>
+     				</dl:DataSetRow>
+    			</dl:DataSet>
+			</select>
+		</li>
+        <li class="smallbutton"><input type=image src="./static/images/btn_smallcancel.jpg" onclick='CancelAddItem();' value="Cancel"/></li>
+	</ul> 
+    
+
+</div>
+<!--End Div Active1-->
+
+
+
+</div>
+<!--End Order Wrapper-->
+
+</dl:SessionView>
+
+
+<!-- STEP 2-->
+
+<dl:SessionView Key="CreateAjaxStep" Value="color">
+
+<!--Begin Order Wrapper-->
+<div class="orderwrapper">
+
+<ul class="steps">	
+	<li class="stepsactive">Step 1: Select Style</li>
+	<li class="stepsnext">Step 2: Enter Order Quantities</li>
+</ul>
+
+<!--Begin Div Active2-->
+<div class="active2">
+	<ul>
+		<li class="step">Selected Style:  </li>
+		<li class="step"><dl:Session Key="StyleNumberSelected"></li>
+		<li class="step"><dl:Session Key="DescriptionSelected"></li>
+		<li class="step"><dl:Session Key="StyleCostSelected"></li>
+	</ul> 
+
+
+</div>
+<!--End Div Active2-->
+
+
+<!--Begin Div Class Active1-->
+<div class="active1">
+	<ul>
+	
+	<li class="step">Step 3: Enter Order Quantities a Color</li>
+	
+	<li>
+	<select name="stylenumber" onchange='SelectColor();' id="color">
+    	<option value="">Select Color to Order</option>
+    		<dl:DataSet Name="order-addlineitem">
+     			<dl:DataSetRow>
+      			<option value="<dl:DataSetColumn Name="ColorCode">"><dl:DataSetColumn Name="Color"></option>
+     			</dl:DataSetRow>
+    		</dl:DataSet>
+	</select>
+	</li>
+	
+	<li class="smallbutton"><input type=image src="./static/images/btn_smallcancel.jpg" onclick='CancelAddItem();' value="Cancel"/></li>
+	
+	</ul>
+	
+</div>
+<!--End Div Class Active1-->
+
+
+</div>
+<!--End Order Wrapper-->
+</dl:SessionView>
+
+<!-- STEP 3 -->
+
+<dl:SessionView Key="CreateAjaxStep" Value="add">
+
+<!--Begin Order Wrapper-->
+<div class="orderwrapper">
+
+<ul class="steps">
+	<li class="stepscomplete">Step 1: Select Style</li>	
+	<li class="stepsactive">Step 2: Enter Order Quantities</li>
+</ul>
+
+<!--Begin Div Active2-->
+<div class="active2">
+	<ul>
+		<li class="step">Selected Style:  </li>
+		<li class="step"><dl:Session Key="StyleNumberSelected"></li>
+		<li class="step"><dl:Session Key="DescriptionSelected"></li>
+		<li class="step"><dl:Session Key="StyleCostSelected"></li>
+	</ul> 
+</div>
+<!--End Div Active2-->
+
+<!--End Div Active2-->
+
+
+<!--Begin Div Class Active3-->
+<div class="active1">
+	<p class="step">Step 2: Enter Order Quantities</p>
+  	
+	<table border=1 width=50% bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1">
+<tr class="tableheader">
+<th width="30%" class="tableheader">
+Color
+</th>
+<th width="70%" class="tableheader">
+Scale/Qty
+</th>
+</tr>	
+  	<dl:DataSet Name="order-addlineitem" TABLE="Colors">
+		
+		<dl:DataSetRow>
+		<tr>
+   
+			
+            <td><dl:DataSetColumn Name="Color"> <BR />Next Po Due Date: <dl:DataSetColumn name="nextcutdate" FORMAT="{0:d}"></td>
+			<td>
+            <table border="1">
+			<tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+				<dl:DataSet Relationship="BySize">
+				<dl:DataSetRow>
+				<td width=70>
+				<dl:DataSetColumn Name="Bucket">
+				</td>
+				</dl:DataSetRow>
+				</dl:DataSet>
+			</tr>
+			<tr>
+				<dl:DataSet Relationship="BySize">
+				<dl:DataSetRow>
+				<td width=70>
+                            
+                            
+                			<input type=text size=5 value=0 name="additem<dl:DataSetColumn Name='colorcode'><dl:DataSetColumn Name='bucket'>" id="additem<dl:DataSetColumn Name='colorcode'><dl:DataSetColumn Name='bucket'>" onblur="validateNumber('additem<dl:DataSetColumn Name='colorcode'><dl:DataSetColumn Name='bucket'>');" />
+			
+				</td>
+				</dl:DataSetRow>
+				</dl:DataSet>
+			</tr>
+            <tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+				<dl:DataSet Relationship="BySize">
+				<dl:DataSetRow>
+				<td width=70>
+                Available				
+				</td>
+				</dl:DataSetRow>
+				</dl:DataSet>
+			</tr>
+            <tr>
+				<dl:DataSet Relationship="BySize">
+				<dl:DataSetRow>
+				<td width=70>
+                			<dl:DataSetColumn name="Available" format="{0:n0}">
+			
+				</td>
+				</dl:DataSetRow>
+				</dl:DataSet>
+			</tr>
+            <tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+				<dl:DataSet Relationship="BySize">
+				<dl:DataSetRow>
+				<td width=70>
+                PO QTY				
+				</td>
+				</dl:DataSetRow>
+				</dl:DataSet>
+			</tr>
+             <tr>
+				<dl:DataSet Relationship="BySize">
+				<dl:DataSetRow>
+				<td >
+                			<dl:DataSetColumn name="Nextqty" format="{0:n0}">
+			
+				</td>
+				</dl:DataSetRow>
+				</dl:DataSet>
+			</tr>
+            
+		</table>
+
+    
+            </td>
+     
+           
+          		
+		</tr>            
+     	</dl:DataSetRow>
+		
+
+		
+    	
+	</dl:DataSet>
+	</table>
+	
+	
+	<ul>
+
+		<li><input type=image src="./static/images/btn_medadditem.jpg" value="Add Item" onclick="ProcessAddLineItem();" /></li>
+		<li><input type=image src="./static/images/btn_medcancel.jpg" onclick='CancelAddItem();' value="Cancel Item"/></li>
+	</ul>
+</div>
+<!--End Div Class Active1-->
+
+</div>
+<!--End Order Wrapper-->
+</dl:SessionView>
+</div>
+
+
+
+
+<dl:SessionView Key="CreateAjaxStep" Value="noitems">
+
+<!--Begin Order Wrapper-->
+<div class="orderwrapper">
+
+<ul class="steps">
+	<li class="stepscomplete">Step 1: Select Style</li>	
+	<li class="stepsactive">Step 2: Enter Order Quantities</li>
+</ul>
+
+<!--Begin Div Active2-->
+<div class="active2">
+	<ul>
+		<li class="step">Selected Style:  </li>
+		<li class="step"><dl:Session Key="StyleNumberSelected"></li>
+		<li class="step"><dl:Session Key="DescriptionSelected"></li>
+		<li class="step"><dl:Session Key="StyleCostSelected"></li>
+	</ul> 
+</div>
+<!--End Div Active2-->
+
+<div class="active2">
+	<ul>
+		<li class="step">Selected Color:  </li>
+		<li class="step"><dl:Session Key="ColorSelected" format="{0:c}"></li>
+	</ul> 
+</div>
+<!--End Div Active2-->
+
+
+<!--Begin Div Class Active3-->
+<div class="active1">
+	
+  	
+	This style can't be ordered at this time, sorry for the inconvenience. <br />
+	
+	    <dl:DataSet dontgeneratewhenempty Name="order-addlineitem"  TableName="NextInventory">
+	    <dl:DataSetHeader>
+	    <h3>We expect to get more inventory on 
+	    </dl:DataSetHeader>
+	    <dl:DataSetROw><dl:DataSetColumn Name="NextDueDate" /> <br />(expected inventory: <dl:DataSetColumn Name="NextIssueQuantity" format="{0:n0}">) </h3> </dl:DataSetROw>
+	    </dl:DataSet>
+	<input type=image src="./static/images/btn_medcancel.jpg" onclick='CancelAddItem();' value="Cancel Item"/>
+		
+</div>
+<!--End Div Class Active1-->
+
+</div>
+<!--End Order Wrapper-->
+</dl:SessionView>
+
+
+<div style="clear:both;" />

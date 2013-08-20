@@ -1,0 +1,39 @@
+<div style="width:100%;background:#333333;height:35px;float:left;">
+	<table border=0 cellspacing=0 cellpadding=0 width=100%>
+	<tr>
+	 	<td>
+			<font color=white>Displaying <dl:DataSetStartRow>&nbsp;-&nbsp;<dl:DataSetEndRow> &nbsp;of <dl:DataSetRowCount></font>
+		</td>
+		<td align=center><font color=white>
+			(&nbsp;View:&nbsp;&nbsp;&nbsp; 
+			<a href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&PageView=TILES&d=0#search<dl:DataSetPagerID>" class="paginatorlink">
+			<dl:SessionView Key="PAGEVIEW" Value="TILES"><font color="white"><b><u></dl:SessionView>Tiles<dl:SessionView Key="PAGEVIEW" Value="TILES"></u></b></font></dl:SessionView></a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;<a id=pagefirst href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&PageView=DETAILS&d=0#search<dl:DataSetPagerID>" class="paginatorlink">
+			<dl:SessionView Key="PAGEVIEW" Value="DETAILS"><font color="white"><b><u></dl:SessionView>Details<dl:SessionView Key="PAGEVIEW" Value="DETAILS"></u></b></font></dl:SessionView></a>&nbsp;)</font>
+		</td>
+		<td align=center>
+			<input style="border-style:solid;border-width:1px;border-color:#fff;background-color:#333;color:#fff;font-size:10px;font-weight:bold;" type=button name=checkall onClick="MassCheck<dl:DataSetPagerID>(1);" value="Check All">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input style="border-style:solid;border-width:1px;border-color:#fff;background-color:#333;color:#fff;font-size:10px;font-weight:bold;" type=button name=uncheckall onClick="MassCheck<dl:DataSetPagerID>(0);" value="Uncheck All">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input style="border-style:solid;border-width:1px;border-color:#fff;background-color:#333;color:#fff;font-size:10px;font-weight:bold;" type=button name=invert onClick="MassCheck<dl:DataSetPagerID>(2);" value="Invert Selection">&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+		<td>
+
+				<p align=right style="color:#fff;font-size:12px;font-weight:bold;margin:7px 10px 0px 5px;"> 
+<a id=pagefirst href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=1#search<dl:DataSetPagerID>" class="paginatorlink"><< First</a> 
+<a id=pageprevious href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=2#search<dl:DataSetPagerID>" class="paginatorlink">< Previous</a> - 
+<a id=pagenext href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=3#search<dl:DataSetPagerID>" class="paginatorlink">Next ></a> 
+<a id=pagelast href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=4#search<dl:DataSetPagerID>" class="paginatorlink">Last >></a>
+
+
+			</p>
+		</td>
+	</tr>	
+	</table>
+
+
+				
+					
+
+
+
+</div>

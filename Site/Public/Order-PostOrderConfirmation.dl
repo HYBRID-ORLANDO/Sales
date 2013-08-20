@@ -1,0 +1,63 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head> 
+<body> 
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+<div align=center style="font-size:20pt;">
+	<BR><BR>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>New</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<p class="confirm1">Your order has been submitted.</p><br>
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate>
+			<p class="confirm1">Changes to your order have been saved.</p><br>
+		</dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>	
+	<p class="confirm1">The order number is:</p><br>
+	<p class="confirm2"><a href="./sales.order.dl?t=ViewOrder&OrderID=<dl:Session Key=OrderID>"><font color=blue><u><b><dl:Session Key="OrderID"></b></u></font></a></p>
+	<br><br>
+	<p class="confirm1">Please select a menu option above to continue or review order options below.</p>
+	<br>	
+	<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:11pt">
+	<tr>
+		<th width=33% style="border: 1px solid black;padding:10px;"><u>Order Links</u></th>
+		<th width=33% style="border: 1px solid black;padding:10px;"><u>What Happens Next</u></th>
+		<th width=33% style="border: 1px solid black;padding:10px;"><u>Customer Service</u></th>	
+	</tr>
+	<tr>
+		<td width=33% valign=top style="border: 1px solid black;padding:10px;">
+			<a id=link1 href="./sales.order.dl?T=PrintOrder&OrderID=" target="_blank"><img src="./static/images/btn_print.gif" style="vertical-align:middle;" onLoad="var OrderID = '<dl:Session Key=OrderID>'; document.getElementById('link1').href = document.getElementById('link1').href + OrderID.substring(8);"> Print Order</a><br>
+			<br><a id=link2 href="./sales.order.dl?T=SelectOrder&OrderID="><img src="./static/images/btn_edit.gif" style="vertical-align:middle;" onLoad="var OrderID = '<dl:Session Key=OrderID>'; document.getElementById('link2').href = document.getElementById('link2').href + OrderID.substring(8);"> Edit Order</a><br>
+			<br><a id=link3 href="./sales.order.dl?T=DuplicateOrder&OrderID="><img src="./static/images/btn_duplicate.gif" style="vertical-align:middle;" onLoad="var OrderID = '<dl:Session Key=OrderID>'; document.getElementById('link3').href = document.getElementById('link3').href + OrderID.substring(8);"> Duplicate Order</a><br>
+			<br><a id=link4 href="./sales.order.dl?T=CancelOrder&OrderID="><img src="./static/images/btn_cancel.gif" style="vertical-align:middle;" onLoad="var OrderID = '<dl:Session Key=OrderID>'; document.getElementById('link4').href = document.getElementById('link4').href + OrderID.substring(8);"> Cancel Order</a>
+		</td>
+		<td width=33% valign=top style="border: 1px solid black;padding:10px;">
+			Your order has been received by the Hybrid System. <br><br>
+			You can make changes to your order (change quantities, add/remove/change items, update billing/shipping) before your order is sent to the warehouse. 
+			Please use the links to the left to make changes to your order.<br><br> 
+			Your order will ship 100% complete.
+		</td>
+		<td width=33% valign=top style="border: 1px solid black;padding:10px;">
+			If you're unable to make changes to your order online or need further assistance with your order, please contact:
+			<br><br><b>John Ohanian</b><br>Phone: 714-947-8156<br>
+			Email:  <a href="mailto:JOhanian@HybridApparel.com" style="color:blue;"><u>JOhanian@HybridApparel.com</u></a><br><br><hr><br>
+			If you have any questions regarding for-sale product such as availability, date on which the product is expected to start shipping, sizing, materials, etc., please contact:
+			<br><br><b>Mike Lee</b><br>Phone: 214-641-5439<br>
+			Email:  <a href="mailto:MLee@HybridApparel.com" style="color:blue;"><u>MLee@HybridApparel.com</u></a>
+	
+		</td>	
+	</tr>
+
+
+
+	</table>
+
+</div>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

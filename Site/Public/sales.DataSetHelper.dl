@@ -1,0 +1,8 @@
+<h1>Data Set Helper</h1>
+Please enter the name of a data set to generate dynamic code:
+<form method=post action="./abc.datasethelper.dl">
+Data set name:<input type name="datasetname" type=text size=20>
+<input type=submit value="Show Data Set">
+<HR>
+Available datasets:<BR>
+<dl:Session Key="AvailableDataSets">

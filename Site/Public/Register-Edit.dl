@@ -1,0 +1,248 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+<script type="text/javascript">
+var SessionID = '<dl:Session ID>';
+</script>
+</head>
+<body>
+<input type=hidden id="ajaxresponse" value="" />
+<header id="heading" role="banner" class="row">
+    <dl:Include File="NotLoggedIn-HeaderLogo.dlwe">
+</header>
+<section id="main" role="content" class="row" >
+    <div class='text twelvecol ' >
+        <div class='text fivecol ' >
+            <h2 class="company-title">
+                New Customer Registration
+            </h2>
+        </div>
+
+        <div class="row twelvecol" id="registration-form" >
+        <div id="AjaxError" style="font-weight:bold;">    </div>
+            <font color=red size=4><dl:Session Key="LastFormError"></font>
+
+                    <form id="registration-header" name="header" onsubmit="ProcessRegistrationForm(); return false;">
+                        <p class="location-name">Customer Information</p>
+                        <table id="info" class="formtable" border="1" width="70%">
+                            <tr>
+                                <td class="formtableleft">Full Company Name:</td>
+                                <td class="formtableright"><input type="text" size="30" name="CustName" id="CustName" value="<dl:DataSetColumn DataSet='Registration' TableName='Registration'   Name='CustName' />"  /></td>
+                                <td class="formtableleft">DBA:</td>
+                                <td class="formtableright"><input type="text" size="30" name="DBA" id="DBA"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='DBA' />"/></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Contact Person:</td>
+                                <td class="formtableright"><input type="text" size="30" name="CustContact" id="CustContact" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='CustContact' />"  /></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Federal Tax ID:</td>
+                                <td class="formtableright"><input type="text" size="30" name="FEDID" id="FEDID"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='FEDID' />"/></td>
+                                <td class="formtableleft">Resale Certificate #:</td>
+                                <td class="formtableright"><input type="text" size="30" name="ResaleID" id="ResaleID"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='ResaleID' />"/></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Year Established:</td>
+                                <td class="formtableright"><input type="text" size="30" name="YearEstablished" id="YearEstablished"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='YearEstablished' />"/></td>
+                                <td class="formtableleft">*Duns #:</td>
+                                <td class="formtableright"><input class="optional" type="text" size="30" name="DUNSID" id="DUNSID"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='DUNSID' />"/></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Phone (no dashes or spaces):</td>
+                                <td class="formtableright"><input type="text" size="30" name="CustPhone" id="CustPhone" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='CustPhone' />"/></td>
+                                <td class="formtableleft">*Fax  (no dashes or spaces):</td>
+                                <td class="formtableright"><input  class="optional" type="text" size="30" name="CustFAX" id="CustFax" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='CustFax' />"/></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Billing Address:</td>
+                                <td class="formtableright"><input type="text" size="30" name="BillingAddress" id="BillingAddress"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BillingAddress' />"/></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">*Billing Address 2:</td>
+                                <td class="formtableright"><input class="optional" type="text" size="30" name="BillingAddress2" id="BillingAddress2"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BillingAddress2' />"/></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">City State</td>
+                                <td class="formtableright" >
+                                    <input type="text" size="18" name="BillingCity" id="BillingCity" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BillingCity' />"/>
+                                    <select style="font-size:8pt;border-width:1px;" class="state" id="billingstate" name="billingstate" >
+                                        <dl:DataSetColumnSelectList DataSet='Registration' TableName="Registration" Name="BillingState" StaticValues=" ,AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY">
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Zip:</td>
+                                <td class="formtableright" >
+                                    <input type="text" size="5" name="BillingZIP" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BillingZIP' />" id="BillingZIP"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Payment Method:</td>
+                                <td class="formtableright">
+                                    <select style="font-size:8pt;border-width:1px;" class="payment" id="PaymentMethod" name="PaymentMethod" >
+                                        <dl:Conditional>
+                                            <dl:ConditionalCondition>1</dl:ConditionalCondition>
+                                            <dl:ConditionalValue><dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='PaymentMethod' /></dl:ConditionalValue>
+                                            <dl:ConditionalMatchesTemplate>
+                                                <option value="1" selected="selected">Credit Card</option>
+                                            </dl:ConditionalMatchesTemplate>
+                                            <dl:ConditionalDoesntMatchTemplate>
+                                                <option value="1" >Credit Card</option>
+                                            </dl:ConditionalDoesntMatchTemplate>
+                                        </dl:Conditional>
+                                        <dl:Conditional>
+                                            <dl:ConditionalCondition>2</dl:ConditionalCondition>
+                                            <dl:ConditionalValue><dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='PaymentMethod' /></dl:ConditionalValue>
+                                            <dl:ConditionalMatchesTemplate>
+                                                <option value="2" selected="selected">Net 30 Day Term</option>
+                                            </dl:ConditionalMatchesTemplate>
+                                            <dl:ConditionalDoesntMatchTemplate>
+                                                <option value="2" >Net 30 Day Term</option>
+                                            </dl:ConditionalDoesntMatchTemplate>
+                                        </dl:Conditional>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="bank-optional" style="display:none">
+                            <p class="location-name">Trade References <span class="sub-title">Required Fields for 30 Day Term.</span></p>
+                            <table id="bank" class="formtable" border="1" width="70%">
+                                <tr>
+                                    <td class="formtableleft">Reference #1 Full Name:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref1Name" id="Ref1Name" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1Name' />"  /></td>
+                                    <td class="formtableleft">Reference #2 Full Name:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref2Name" id="Ref2Name" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2Name' />"  /></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Address :</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref1Address" id="Ref1address"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1address' />"/></td>
+                                    <td class="formtableleft">Address:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref2address" id="Ref2address" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2Address' />"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">*Address 2:</td>
+                                    <td class="formtableright"><input class="optional" type="text" size="30" name="Ref1Address2" id="Ref1address2"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1address2' />"/></td>
+                                    <td class="formtableleft">*Address 2:</td>
+                                    <td class="formtableright"><input class="optional" type="text" size="30" name="Ref2address2" id="Ref2address2" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2Address2' />"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">City, State</td>
+                                    <td class="formtableright" >
+                                        <input type="text" size="18" name="ref1City" id="Ref1City" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1City' />"/>
+                                        <select style="font-size:8pt;border-width:1px;" class="state" id="Ref1State" name="Ref1State" >
+                                            <dl:DataSetColumnSelectList DataSet='Registration' TableName="Registration" Name="Ref1State" StaticValues=" ,AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY">
+                                        </select>
+                                    </td>
+                                    <td class="formtableleft">City, State</td>
+                                    <td class="formtableright" >
+                                        <input type="text" size="18" name="Ref2City" id="Ref2City" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2City' />"/>
+                                        <select style="font-size:8pt;border-width:1px;" class="state" id="Ref2State"  name="Ref2State">
+                                            <dl:DataSetColumnSelectList DataSet='Registration' TableName="Registration" Name="Ref2State" StaticValues=" ,AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY">
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Zip:</td>
+                                    <td class="formtableright" >
+                                        <input type="text" size="5" name="ref1ZIP" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1Zip' />" id="ref1ZIP"/>
+                                    </td>
+                                    <td class="formtableleft">Zip:</td>
+                                    <td class="formtableright" >
+                                        <input type="text" size="5" name="ref2ZIP" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2ZIP' />" id="ref2ZIP"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Phone:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref1Phone" id="Ref1Phone" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1Phone' />"/></td>
+                                    <td class="formtableleft">Phone:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref2Phone" id="Ref2Phone" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2Phone' />"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">*Fax:</td>
+                                    <td class="formtableright"><input class="optional" type="text" size="30" name="Ref1Fax" id="Ref1Fax" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1Fax' />"/></td>
+                                    <td class="formtableleft">*Fax:</td>
+                                    <td class="formtableright"><input class="optional" type="text" size="30" name="Ref2Fax" id="Ref2Fax" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2Fax' />"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Contact Person:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref1Contact" id="Ref1Contact" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref1Contact' />"/></td>
+                                    <td class="formtableleft">Contact Person:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Ref2Contact" id="Ref2Contact" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Ref2Contact' />"/></td>
+                                </tr>
+                            </table>
+                            <p class="location-name">Banking Information <span class="sub-title">Required Fields for 30 Day Term.</span></p>
+                            <table class="formtable" border="1" width="70%">
+                                <tr>
+                                    <td class="formtableleft">Bank Name:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="BankName" id="BankName" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BankName' />"  /></td>
+                                    <td class="formtableleft">Account Number:</td>
+                                    <td class="formtableright"><input type="text" size="15"  name="BankAccount" id="BankAccount" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='bankAccount' />" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Bank Address:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="Bankaddress" id="Bankaddress"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Bankaddress' />"/></td>
+                                    <td class="formtableleft">*Bank Address 2:</td>
+                                    <td class="formtableright"><input class="optional" type="text" size="30" name="Bankaddress" id="Bankaddress2"  value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='Bankaddress2' />"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="formtableleft">City, State</td>
+                                    <td class="formtableright" >
+                                        <input type="text" size="18" name="BankCity" id="BankCity" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BankCity' />"/>
+                                        <select style="font-size:8pt;border-width:1px;" class="state" id="BankState" name="BankState">
+                                            <dl:DataSetColumnSelectList DataSet='Registration' TableName="Registration" Name="BankState" StaticValues=" ,AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY">
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Zip:</td>
+                                    <td class="formtableright" >
+                                        <input type="text" size="5" name="BankZIP" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BankZip' />" id="BankZip"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Phone:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="BankPhone" id="BankPhone" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='BankPhone' />"/></td>
+                                    <td class="formtableleft">*Fax:</td>
+                                    <td class="formtableright"><input class="optional" type="text" size="30" name="BankFax" id="BankFax" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='bankfax' />"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="formtableleft">Contact Person:</td>
+                                    <td class="formtableright"><input type="text" size="30" name="BankContact" id="BankContact" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='bankcontact' />"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p class="location-name">Profile</p>
+                        <table id="profile" class="formtable" border="1" width="70%">
+                            <tr>
+                                <td class="formtableleft">Email: </td>
+                                <td class="formtableright"><input class="email" type="text" size="30" name="custemail" id="custemail" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='custemail' />"  /></td>
+                                <td class="formtableleft">Confirm Email:</td>
+                                <td class="formtableright"><input class="email-conf" type="text" size="30"  name="custemailconf" id="custemailconf" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">
+                                <td class="formtableright">   <span id="custemail-confirmMessage" class="custemail-confirmMessage"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">Password:</td>
+                                <td class="formtableright"><input class="password" type="password" size="30" name="password" id="password" value="<dl:DataSetColumn  DataSet='Registration' TableName='Registration' Name='password' />"  /></td>
+                                <td class="formtableleft">Confirm Password:</td>
+                                <td class="formtablteeright"><input class="pw-conf" type="password" size="30"  name="passwordconf" id="passwordconf" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="formtableleft">
+                                <td class="formtableright">   <span id="password-confirmMessage" class="password-confirmMessage"></span></td>
+                            </tr>
+                        </table>
+                        <ul class="submitbuttons">
+                            <li><a class="btn-green" href="" onclick="ProcessRegistrationForm();return false;">Submit Application</a></li>
+                        </ul>
+                        <br />
+                    </form>
+
+
+
+        </div>
+
+    </div>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

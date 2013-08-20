@@ -1,0 +1,16 @@
+		<!--Begin Nav-->
+        <div id="nav">
+        
+        	<ul id="navlist">
+            	<li class="navitem"><a href="./sales.homepage.dl?t=view">Dashboard</a></li>
+                <li class="navitem"><a href="./sales.order.dl?t=Edit">View Cart</a></li>
+                <li class="navitem"><a href="./sales.ShoppingCanvas.dl?T=View">Shop</a></li>
+                
+                <dl:SessionView Key="hybrid.Profile.REGISTRATIONTYPE" value="1"><li class="navitem"><a href="./hybrid.admin.dl?T=Browse">Admin</a></li> </dl:SessionView>
+                <li class="navitem"><a href="./GeneralInfo.dlwe" target="_blank">General Info/Help</a></li>
+                <li class="navitem"><a href="./sales.logout.dl">Log Out</a></li>
+                
+            </ul>
+            
+        </div>
+        <!--End Nav--> 

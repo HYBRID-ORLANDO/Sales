@@ -1,0 +1,4 @@
+<div style="width:100%;background:#333333;height:35px;float:left;">
+				<p style="color:#fff;font-size:12px;font-weight:bold;margin:7px 0px 0px 5px;width:50%;float:left;">Displaying <dl:DataSetStartRow>&nbsp;-&nbsp;<dl:DataSetEndRow> &nbsp;of <dl:DataSetRowCount>
+				<p style="color:#fff;font-size:12px;font-weight:bold;margin:7px 10px 0px 5px;width:40%;float:right;text-align:right;"> <a id=pagefirst href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=1#search" class="paginatorlink"><< First</a> <a id=pageprevious href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=2#search" class="paginatorlink">< Previous</a> - <a id=pagenext href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=3#search" class="paginatorlink">Next ></a> <a id=pagelast href="./hybrid.paginate.dl?p=<dl:DataSetPagerID>&d=4#search" class="paginatorlink">Last >></a></p>
+</div>

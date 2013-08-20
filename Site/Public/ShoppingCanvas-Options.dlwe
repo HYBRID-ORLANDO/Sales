@@ -1,0 +1,10 @@
+﻿<dl:DataSetRow><div>
+  <a style="font-size:9pt;line-height:60%;" href="./sales.ShoppingCanvas.dl?T=Search&Tag=<dl:DataSetColumn Name="TAG">&Type=<dl:DataSetColumn Name="Type">"><font color=blue><dl:DatasetColumn Name="TAG" /></font></a></div>
+
+  
+
+      </dl:DataSetRow>
+
+
+</dl:DataSet><br>
+

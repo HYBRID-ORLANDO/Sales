@@ -1,0 +1,73 @@
+﻿(<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ013G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ013G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ023G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ023G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ033G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ033G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ043G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ043G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ053G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ053G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ063G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ063G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ073G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ073G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ083G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ083G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ093G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ093G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ103G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ103G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ113G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ113G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+				<dl:Conditional>
+				<dl:ConditionalCondition><dl:DataSetColumn Name="SZ123G"></dl:ConditionalCondition>
+				<dl:ConditionalValue></dl:ConditionalValue>										
+				<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+				<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn Name="SZ123G">,&nbsp;</dl:ConditionalDoesntMatchTemplate>	
+				</dl:Conditional>
+			)

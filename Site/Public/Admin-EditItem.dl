@@ -1,0 +1,251 @@
+﻿<div id="quickview-content">
+<dl:DataSet Name="EditItem" tablename="STYLE">
+<dl:DataSetRow>
+<input type=Hidden name=ItemID id=ItemID value=<dl:DataSetColumn Name="ITEMID">>
+<input type=Hidden name=SaveItem id=SaveItem value=1>
+<table border=0 cellspacing=0 cellpadding=0 width=100% height=100% style="background-color:white;">
+<tr>
+	<td valign=top width=50% style="padding:2px;" rowspan=2><p align=center><img border=0 src="<dl:DataSetColumn Name="IMAGEURL">"></p></td>
+	<td valign=top width=50% style="padding:5px;">
+		<img border=0  height=69 width=103 src="<dl:DataSetColumn Name="LICENSEIMGURL">" ><br>
+		<div style="font-size:7pt;">
+		<b>License:</b>  <select name=QQlicense id=QQlicense>
+		<dl:DataSet Name="EditItem" tablename="LICENSES">
+		<dl:DataSetRow> 
+			<option value="<dl:DataSetColumn Name="LICENSETXT">" <dl:DataSetColumn Name="SELECTED">><dl:DataSetColumn Name="LICENSETXT"></option>
+		</dl:DataSetRow>
+		</dl:DataSet></select><br><br>
+		<b>Gender:</b>  <select name=QQgender id=QQgender>
+		<dl:DataSet Name="EditItem" tablename="GENDERS">
+		<dl:DataSetRow> 
+			<option value="<dl:DataSetColumn Name="GENDERTXT">" <dl:DataSetColumn Name="SELECTED">><dl:DataSetColumn Name="GENDERTXT"></option>
+		</dl:DataSetRow>
+		</dl:DataSet></select>&nbsp;&nbsp;&nbsp;&nbsp;
+		<b>Category:</b>  <select name=QQcategory id=QQcategory>
+		<dl:DataSet Name="EditItem" tablename="CATEGORIES">
+		<dl:DataSetRow> 
+			<option value="<dl:DataSetColumn Name="CATEGORYTXT">" <dl:DataSetColumn Name="SELECTED">><dl:DataSetColumn Name="CATEGORYTXT"></option>
+		</dl:DataSetRow>
+		</dl:DataSet></select><br><br>
+		<hr style="border-color:darkgrey;">
+		<b>Price:</b>&nbsp;$<input type=text name=QQPRODUCTPRICE id=QQPRODUCTPRICE value="<dl:DatasetColumn Name="PRODUCTPRICE"  format="{0:0.00}"/>" size=10>&nbsp;&nbsp;&nbsp;&nbsp;
+		<b>Weight:</b>&nbsp;<input type=text name=QQITEMWEIGHT id=QQITEMWEIGHT value="<dl:DatasetColumn Name="ITEMWEIGHT"  format="{0:0.00}"/>" size=10><br><br>
+		<b><u>AS400 Company:</u></b> <select name="QQAS400CONO" id="QQAS400CONO" <dl:DataSetColumn Name="STATUS">>
+		<dl:DataSet Name="EditItem" tablename="COMPANY">
+		<dl:DataSetRow> 
+			<option value="<dl:DataSetColumn Name="COMPANY">" <dl:DataSetColumn Name="SELECTED">><dl:DataSetColumn Name="COMPANY"></option>
+		</dl:DataSetRow>
+		</dl:DataSet></select><br><br>
+		<b><u>AS400 Style:</u></b> <input type=text name=QQAS400PRCD id=QQAS400PRCD value="<dl:DatasetColumn Name="AS400PRCD"/>" size="15" <dl:DataSetColumn Name="STATUS">><br><br>
+		<b><u>AS400 Color Code:</u></b> <input type=text name=QQAS400CRCD id=QQAS400CRCD value="<dl:DatasetColumn Name="AS400CRCD"/>" size="5" <dl:DataSetColumn Name="STATUS">><br><br>
+		<b>Color Description:</b> <input type=text name=QQCOLORDESCRIPTION id=QQCOLORDESCRIPTION value="<dl:DatasetColumn Name="COLORDESCRIPTION"/>" size=20><br><br>
+		<b>Product Description:</b> <input type=text name=QQPRODUCTDESCRIPTION id=QQPRODUCTDESCRIPTION value="<dl:DatasetColumn Name="PRODUCTDESCRIPTION"/>" size=20><br><br>
+		<hr style="border-color:darkgrey;">
+		<table border=0 cellspacing=0 cellpadding=0 width=100%>
+		<tr>
+			<td><b><u>Pre-book Available Quantities</u></b></td>
+			<td align=right><b>Order Multiple:</b> <SELECT name=QQordermultiple id=QQordermultiple>
+		<dl:DataSet Name="EditItem" tablename="ORDERMULTIPLE">
+		<dl:DataSetRow> 
+			<option value="<dl:DataSetColumn Name="NUMBER">" <dl:DataSetColumn Name="SELECTED">><dl:DataSetColumn Name="NUMBER"></option>
+		</dl:DataSetRow>
+		</dl:DataSet></select></td>
+		</tr>
+		</table>
+	<table border=0 cellspacing=0 cellpadding=0 width=100%>
+	<tr>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ013G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ013G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC1"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ023G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th  width=70><dl:DataSetColumn Name="SZ023G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC2"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ033G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ033G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC3"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ043G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ043G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC4"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ053G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ053G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC5"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ063G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ063G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC6"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ073G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ073G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC7"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ083G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ083G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC8"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ093G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ093G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC9"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ103G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ103G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC10"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ113G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ113G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC11"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ123G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><th width=70><dl:DataSetColumn Name="SZ123G"><div style="font-size:5pt;"><dl:DataSetColumn Name="UPC12"></div></th></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+	</tr>
+	<tr>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ013G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE01 id=QQSIZE01 value="<dl:DataSetColumn Name="AVAILTOORDERQ1">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ023G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE02 id=QQSIZE02 value="<dl:DataSetColumn Name="AVAILTOORDERQ2">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ033G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE03 id=QQSIZE03 value="<dl:DataSetColumn Name="AVAILTOORDERQ3">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ043G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE04 id=QQSIZE04 value="<dl:DataSetColumn Name="AVAILTOORDERQ4">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ053G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE05 id=QQSIZE05 value="<dl:DataSetColumn Name="AVAILTOORDERQ5">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ063G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE06 id=QQSIZE06 value="<dl:DataSetColumn Name="AVAILTOORDERQ6">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ073G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE07 id=QQSIZE07 value="<dl:DataSetColumn Name="AVAILTOORDERQ7">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ083G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE08 id=QQSIZE08 value="<dl:DataSetColumn Name="AVAILTOORDERQ8">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ093G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE09 id=QQSIZE09 value="<dl:DataSetColumn Name="AVAILTOORDERQ9">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ103G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE10 id=QQSIZE10 value="<dl:DataSetColumn Name="AVAILTOORDERQ10">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ113G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE11 id=QQSIZE11 value="<dl:DataSetColumn Name="AVAILTOORDERQ11">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="SZ123G"></dl:ConditionalCondition>
+		<dl:ConditionalValue></dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate></dl:ConditionalMatchesTemplate> 
+		<dl:ConditionalDoesntMatchTemplate><td align=center><input type=text name=QQSIZE12 id=QQSIZE12 value="<dl:DataSetColumn Name="AVAILTOORDERQ12">" size="3" <dl:DataSetColumn Name="STATUS">></td></dl:ConditionalDoesntMatchTemplate>	
+		</dl:Conditional>	
+		
+	</tr>
+	</table>
+
+		<hr style="border-color:darkgrey;">		
+		<b><u>Item Flares</u></b><br><br>
+		<dl:DataSet Name="EditItem" tablename="FLARES" dontgeneratewhenempty>
+		<dl:DataSetHeader><table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:8pt;"></dl:DataSetHeader>
+		<dl:DataSetRow> 
+			<tr>
+				<td><input type=checkbox name="ZZFLARE<dl:DataSetColumn Name="FLAREID">" id="ZZFLARE<dl:DataSetColumn Name="FLAREID">" value="flareon" <dl:DataSetColumn Name="SELECTED">></td>
+				<td><img border=0 src="./private/flare/<dl:DataSetColumn Name="FLAREID">.jpg"></td>
+				<td><dl:DataSetColumn Name="FLARE"></td>
+			</tr>
+		</dl:DataSetRow>
+		<dl:DataSetFooter></table></dl:DataSetFooter>
+		</dl:DataSet>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td width=50% valign=bottom style="font-size:10pt;line-height:140%;">
+		<div id="ajaxresponse" style="font-weight:bold;">
+  
+		</div><br><br>
+		<div align=right>
+			<input type="image" src="./static/images/btn_newcancel.jpg" onclick='$("#quickview").dialog("close");' value="Cancel Item"/>	
+			<dl:Conditional>
+			<dl:ConditionalCondition><dl:DataSetColumn Name="ITEMTYPE"></dl:ConditionalCondition>
+			<dl:ConditionalValue>0</dl:ConditionalValue>										
+			<dl:ConditionalMatchesTemplate><input type="image" src="./static/images/btn_newremovelink.jpg" value="Add Item" onclick="SaveItem(-1);" /></dl:ConditionalMatchesTemplate> 
+			<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>	
+			</dl:Conditional>
+			<dl:Conditional>
+			<dl:ConditionalCondition><dl:DataSetColumn Name="ITEMTYPE"></dl:ConditionalCondition>
+			<dl:ConditionalValue>1</dl:ConditionalValue>										
+			<dl:ConditionalMatchesTemplate><input type="image" src="./static/images/btn_newlink.jpg" value="Add Item" onclick="SaveItem(1);" /></dl:ConditionalMatchesTemplate> 
+			<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>	
+			</dl:Conditional>
+
+
+&nbsp;<input type="image" src="./static/images/btn_newsave.jpg" value="Add Item" onclick="SaveItem(0);" />
+		</div>
+	</td>		
+</tr>
+</table>
+</dl:DataSetRow>   		
+</dl:DataSet>
+</div>

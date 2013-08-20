@@ -1,0 +1,39 @@
+﻿<dl:DataSetHeader><!--<a name="search<dl:DataSetPagerID>"></a>--><table border=0 cellspacing=0 cellpadding=0 width=100% name=maintable id=maintable><tr><td><dl:include file="./templates/wholesalepaginator.dl"></dl:DataSetHeader>
+<dl:DataSetRow><div id="menu" style="height:<dl:Session Key="GALLERYHEIGHT">px;width:185px;float:left;"><table border=0 cellspacing=0 cellpadding=0 name="table<dl:dataSetColumn Name=ARTMASTERID>" id="table<dl:dataSetColumn Name=ARTMASTERID>">
+					<tr>
+						<td><img  src="./public/static/images/spacer.png" border="0" width=1 height=120></td>
+						<td rowspan=2>
+                            <img class="layer1" id="layer1" src="./public/static/images/spacer.png" border="0" width="1" height="<dl:Session Key="FLAREHEIGHT">"><dl:DataSetColumn Name='FLARE' />
+
+
+						    <div style="font-size:6.5pt;line-height:110%;text-align: center;">
+                                <div  style="position:relative" class="screenshot"  rel="<dl:DataSetColumn Name='LICENSEIMGURL' />" target="_blank" >
+                                    <div>
+                                        <div style="position:relative;">
+                                           <a class="quickview" timeout="false" href="./sales.ShoppingCanvas.dl?T=QuickOrder&ID=<dl:dataSetROWID>" >
+                                               <img id="layer1" class="gallery-thumb-with-preview" border=0  src="./private/products/<dl:DataSetColumn Name="ITEMID" />_M.jpg">
+                                               <div style="background:#ccc;padding-top:-15px;position:absolute;bottom:10%;left:40%;"> </div>
+                                           </a>
+                                       </div>
+                                       <div>      <br/>
+                                           <a class="quickview screenshot" timeout="false" href="./sales.ShoppingCanvas.dl?T=QuickOrder&ID=<dl:dataSetROWID>" >
+                                                <dl:DatasetColumn Name="AS400PRCD" /><br><dl:DatasetColumn Name="PRODUCTDESCRIPTION" /><BR>
+						<dl:DatasetColumn Name="COLORDESCRIPTION" /><br>
+						<dl:DatasetColumn Name="PRODUCTPRICE"  format="{0:C}"/>
+                                                <br><font color=red><b><dl:dataSetColumn Name=FLAIRTEXT></b></font>
+                                           </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+						</td>
+						<td valign=top align=left></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><img id="layer1" src="./public/static/images/spacer.png" border="0" width=5 height=5></td>
+					</tr>
+					</table></div></dl:DataSetRow>
+<dl:DataSetFooter></td></tr></table><dl:include file="./templates/wholesalepaginator.dl"></dl:DataSetFooter>
+</dl:DataSet>
+

@@ -1,0 +1,152 @@
+﻿<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+    </head>
+    <body class="container">
+    <header id="heading" role="banner" class="row">
+        <dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+            <dl:Include File="ShoppingCanvas-IDStub.dlwe">
+                <dl:Include File="ShoppingCanvas-Menu.dlwe">
+    </header>
+    <section id="main" role="content" class="row">
+        <style type="text/css">
+            .hide-full {
+                display:none;}
+        </style>
+
+        <p style="font-size:16px;font-weight:bold;color:red;text-align:center;"><dl:Session Key="LastFormError"></p>
+        <table border=0 cellspacing=0 cellpadding=0 width=100%>
+            <tr>
+
+                <td id="quickview-content" width=80% valign=top>
+                    <dl:DataSet Name="QuickOrder"  tablename="STYLES">
+                        <dl:DataSetRow>
+                            <table border=0 cellspacing=0 cellpadding=0 style="">
+                                <tr>
+                                    <td valign=top width=50% style="padding:2px;" rowspan=2><p align=center><img width= border=0 src="<dl:DataSetColumn Name="IMAGEURL">" ></p></td>
+                                    <td valign=top width=50% style="padding:2px;">
+                                        <table border=0 cellspacing=0 cellpadding=0 width=100%>
+                                            <tr>
+                                                <td align=left valign=top><img onLoad="CheckMultiples(<dl:DataSetColumn Name="ORDERMULTIPLE">);" border=0  height=69 width=103 src="<dl:DataSetColumn Name="LICENSEIMGURL">" ></td>
+                                                <td align=right valign=top><dl:DataSetColumn Name="FLARE"></td>
+                                            </tr>
+                                        </table>
+                                        <br><br><br>
+                                        <span style="font-size:11pt;"><dl:DataSetColumn Name="LICENSE">&nbsp;<dl:DataSetColumn Name="PRODUCTDESCRIPTION"></span>
+                                        <hr style="border-color:darkgrey;">
+                                        <table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:8pt;">
+                                            <tr>
+                                                <td style="padding:3px;" rowspan=5 width=40% valign=top>
+                                                    <dl:DataSet Relationship="BySize">
+                                                        <dl:DataSetHeader>
+                                                            <table width=100% cellspacing=0 cellpadding=0 border=0 >
+                                                                <tr>
+                                                                    <th align=right style="padding:1px;"><u>Size</u>&nbsp;&nbsp;&nbsp;</th>
+                                                                    <th align=left style="padding:1px;">&nbsp;<u>UPC</u></th>
+                                                                </tr>
+                                                        </dl:DataSetHeader>
+                                                        <dl:DataSetRow>
+                                                            <tr>
+                                                                <td style="font-weight:bold;padding:1px;"><p align=right><dl:DataSetColumn Name="Bucket">:&nbsp;&nbsp;</p></td>
+                                                                <td style="padding:1px;">&nbsp;<dl:DataSetColumn Name="UPC"></td>
+                                                            </tr>
+                                                        </dl:DataSetRow>
+                                                        <dl:DataSetFooter></table></dl:DataSetFooter>
+                                                     </dl:DataSet>
+                                                </td>
+                                                <td style="padding:3px;" width=30%><p align=right>Style:</p></td>
+                                                <td style="padding:3px;" width=30%><b><dl:DataSetColumn Name="AS400PRCD"></b></td>
+                                            </tr>
+                                <tr>
+                                    <td style="padding:3px;" width=30%><p align=right>Color:</p></td>
+                                    <td style="padding:3px;" width=30%><b><dl:DataSetColumn Name="AS400CRCD"></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:3px;" width=30%><p align=right>&nbsp;</p></td>
+                                    <td style="padding:3px;" width=30%><b><dl:DataSetColumn Name="COLORDESCRIPTION"></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:3px;" width=30%><p align=right>Category:</p></td>
+                                    <td style="padding:3px;" width=30%><b><dl:DataSetColumn Name="CATEGORY"></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:3px;" width=30%><p align=right>Gender:</p></td>
+                                    <td style="padding:3px;" width=30%><b><dl:DataSetColumn Name="GENDER"></b></td>
+                                </tr>
+                        </table><br>
+                    <dl:DatasetColumn Name="PRODUCTPRICE"  format="{0:C}"/>&nbsp;each
+                    <dl:Conditional>
+                        <dl:ConditionalCondition>1</dl:ConditionalCondition>
+                        <dl:ConditionalValue><dl:DataSetColumn Name="ORDERMULTIPLE"></dl:ConditionalValue>
+                        <dl:ConditionalMatchestemplate></dl:ConditionalMatchestemplate>
+                        <dl:ConditionalDoesntMatchTemplate><span style=font-size:10pt;font-weight:bold;"><br><br>(must order in multiples of&nbsp;<dl:DataSetColumn Name="ORDERMULTIPLE">)</span></dl:ConditionalDoesntMatchTemplate>
+                    </dl:Conditional><br><br>
+                    <input type=hidden disabled name=OrderMultiple id=OrderMultiple value="<dl:DataSetColumn Name="ORDERMULTIPLE">">
+                    <table border="0" cellspacing=0 cellpadding=0 width=100% style="font-size:9pt;padding:2px;">
+                        <tr>
+                            <dl:DataSet Relationship="BySize">
+                                <dl:DataSetHeader><th style="padding:1px;"><p align=right>&nbsp;</p></th></dl:DataSetHeader>
+                                <dl:DataSetRow><th style="padding:1px;"><p align=center><b><dl:DataSetColumn Name="Bucket"></b></p></th></dl:DataSetRow>
+                                <dl:DataSetFooter><th style="padding:1px;background-color:#F6F6F6;">Total</th></dl:DataSetFooter>
+                            </dl:DataSet>
+                        </tr>
+                        <tr>
+                            <dl:DataSet Relationship="BySize">
+                                <dl:DataSetHeader><td style="padding:1px;"><p align=right>&nbsp;</p></td></dl:DataSetHeader>
+                                <dl:DataSetRow>
+                                    <td style="padding:3px;"><p align=center><input style="font-size:9pt;border-size:1px;text-align:center;" type="text" size="3" value="<dl:DataSetColumn Name='NextQty'>" name="additem"
+                                        <dl:DataSetColumn Name='colorcode'>
+                                            <dl:DataSetColumn Name='bucket'>
+                                                " id="additem<dl:DataSetColumn Name='colorcode'>
+                                                <dl:DataSetColumn Name='bucket'>
+                                                    " onblur="validateNumber('additem<dl:DataSetColumn Name='colorcode'>
+                                                    <dl:DataSetColumn Name='bucket'>');" onChange="CheckMultiples(parseInt(document.getElementById('OrderMultiple').value));" />
+                                    </p></td>
+                                </dl:DataSetRow>
+                                <dl:DataSetFooter><td style="padding:1px;background-color:#F6F6F6;"><p align=center><input disabled style="font-size:9pt;border-size:1px;text-align:center;" type="text" size="3" name="total" id="total" value="0"></p></td></dl:DataSetFooter>
+                            </dl:DataSet>
+                        </tr>
+                        <tr>
+                            <dl:DataSet Relationship="BySize">
+                                <dl:DataSetHeader><td style="padding:1px;font-size:8pt;" align=right>Available:</td></dl:DataSetHeader>
+                                <dl:DataSetRow><td style="padding:1px;font-size:8pt;"><p align=center><dl:DataSetColumn name="Available" format="{0:n0}"></p></td></dl:DataSetRow>
+                                <dl:DataSetFooter><td id=totalmessage style="padding:3px;background-color:#F6F6F6;" align=center>&nbsp;</td></dl:DataSetFooter>
+                            </dl:DataSet>
+                        </tr>
+                    </table>
+            </td>
+        </tr>
+        <tr>
+            <td width=50% valign=bottom style="font-size:10pt;line-height:140%;">
+                <div id="ajaxresponse" style="font-weight:bold;font-size:8pt;">
+
+                </div>
+                <div align=right>
+                    <input class="hide-full" type="image" src="./static/images/btn_medcancel.jpg" onclick='$("#quickview").dialog("close");' value="Cancel Item"/>
+                    <input class="hide-full" type="image" src="./static/images/btn_medadditem.jpg" value="Add Item" onclick="ProcessQuickAddLineItem();" />
+                </div>
+            </td>
+        </tr>
+        </table>
+        </dl:DataSetRow>
+        </dl:DataSet>
+
+
+
+
+
+                </td>
+        </tr>
+        <tr>
+            <td>
+                    <div id="ajaxresponse" style="font-weight:bold;font-size:8pt;">
+
+                    </div>
+                    <div align=right>
+                        <input type="image" src="./static/images/btn_medadditem.jpg" value="Add Item" onclick="ProcessQuickAddLineItem();response = getFormElementValue('ajaxresponse');if (response.indexOf('OK') == 0){window.location='./sales.ShoppingCanvas.dl?T=View'}else {document.getElementById('ajaxresponse').innerHTML = '<font color=Red size=3>Please correct the following errors:<BR>' + response;} " />
+                        <p id="messagecenter" ></p>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+    </section>
+    <dl:Include File="ShoppingCanvas-Footer.dlwe">

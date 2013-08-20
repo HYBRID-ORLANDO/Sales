@@ -1,0 +1,27 @@
+﻿<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head>
+<body onLoad="" class="container">	
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+    <div id="quickview">
+    <!--Error loading quick view-->
+    </div>
+<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr>
+	<td width=20% valign=top>
+		<dl:Include File="ShoppingCanvas-DisplayCart.dl">
+		
+		<dl:Include File="ShoppingCanvas-Tags.dlwe">
+	</td>
+	<td width=80% valign=top>
+		<dl:DataSet Name="license">
+		<dl:Include File="ShoppingCanvas-LicenseGallery.dlwe">
+	</td>
+</tr>
+</table>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

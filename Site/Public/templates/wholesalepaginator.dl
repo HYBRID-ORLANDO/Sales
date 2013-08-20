@@ -1,0 +1,18 @@
+<div style="width:100%;background:#333333;height:35px;float:left;">
+	<table border=0 cellspacing=0 cellpadding=0 width=100% height=100%>
+	<tr>
+		<td><font size=1 color=white><b>Search Results</b></font></td>
+		<td align=center>&nbsp;</td>
+		<td><p align=right style="font-size:8pt;line-height:140%;">
+			<font color=white>Displaying&nbsp;&nbsp;<b><dl:DataSetStartRow></b>&nbsp;&nbsp;-&nbsp;&nbsp;<b><dl:DataSetEndRow></b>&nbsp;&nbsp;of&nbsp;&nbsp;<b><dl:DataSetRowCount></b></font><br>
+			<b>
+<a style="font-size:8pt;line-height:140%;color:white;" id=pagefirst href="./sales.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=1#search<dl:DataSetPagerID>"><u>&lt;&lt; First</u></a>&nbsp;&nbsp;&nbsp;
+<a style="font-size:8pt;line-height:140%;color:white;" id=pageprevious href="./sales.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=2#search<dl:DataSetPagerID>"><u>&lt; Previous</u></a>&nbsp;&nbsp;&nbsp;
+<a style="font-size:8pt;line-height:140%;color:white;" id=pagenext href="./sales.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=3#search<dl:DataSetPagerID>"><u>Next &gt;</u></a>&nbsp;&nbsp;&nbsp;
+<a style="font-size:8pt;line-height:140%;color:white;" id=pagelast href="./sales.paginate.dl?p=<dl:DataSetPagerID>&PageView=<dl:Session Key="PAGEVIEW">&d=4#search<dl:DataSetPagerID>"><u>Last &gt;&gt;</u></a>
+</b>		
+		     </p>
+		</td>
+	</tr>	
+	</table>
+</div>

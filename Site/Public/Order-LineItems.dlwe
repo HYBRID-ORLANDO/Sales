@@ -1,0 +1,41 @@
+		<br><BR><br><b><u>Order Items</u></b><br><br>	
+		<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+		<tr class="tableheader">
+			<th style="padding:2px;"><p align=left>Style</p></th>
+			<th style="padding:2px;">Color</th>
+			<th style="padding:2px;">Scale/Qty</th>
+			<th style="padding:2px;"><p align=right>$ Each</p></th>
+			<th style="padding:2px;"><p align=right>Extd</p></th>
+		</tr>
+    		<dl:DataSet Name="activeorder"  TableName="LineItems">
+		<dl:DataSetRow>
+    		<tr>
+        		<td style="padding:2px;"><dl:DataSetColumn Name=StyleNumber> <br /> <dl:DataSetColumn Name="Description"></td>
+			<td style="padding:2px;" align=center><dl:DataSetColumn Name=Color><input type=hidden id="LINECOST<dl:DataSetRowID>" value="<dl:DataSetColumn Name=Cost>" /></td>     
+			<td style="padding:2px;">
+				<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+				<tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+				<dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+					<dl:DataSetRow><th style="padding:2px;" width=25><dl:DataSetColumn Name="SizeCode"></th></dl:DataSetRow>
+			        </dl:DataSet>
+					<th style="padding:2px;" align=right width=25>Total</th>
+				</tr>
+				<tr>
+					<dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+						<dl:DataSetRow><td style="padding:2px;" align=center width=25><dl:DataSetColumn Name="Quantity" format="{0:N0}"></td></dl:DataSetRow>
+					</dl:DataSet>
+					        <td style="padding:2px;" align=right width=25><dl:DataSetColumn Name=".TotalQuantity" format="{0:N0}"></td>
+				</tr>
+				</table>
+			</td>     
+			<td align=right style="padding:2px;"><dl:DataSetColumn Name=Cost FORMAT="{0:C}"></td>        
+			<td align=right style="padding:2px;"><dl:DataSetColumn Name=.TotalRetail FORMAT="{0:C}"></td>        
+		</tr>
+    		</dl:DataSetRow>	
+		<dl:DataSetFooter>
+    		<tr>
+    			<td colspan=5 align=right style="padding:2px;"><b>Total Ordered Units</b> <dl:DataSetColumnSummary Name=".TotalQuantity" ></td>
+    		</tr>
+    		</dl:DataSetFooter>				
+		</dl:DataSet>
+		</table>

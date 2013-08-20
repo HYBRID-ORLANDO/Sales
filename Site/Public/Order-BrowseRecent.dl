@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> 
+<head> 
+<title>Extranet - Hybrid Apparel</title> 
+
+<link rel='stylesheet' type='text/css' href="./static/cc2.css" /> 
+<link rel="shortcut icon" href="./static/images/favicon.ico" type="image/x-icon"> 
+
+ 
+ 
+ 
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="HAPedit 3.1" /> 
+
+</head> 
+<body > 
+
+<!--Begin Container--> 
+<div id="container"> 
+ 
+	<!--Begin Wrapper--> 
+    <div id="wrapper"> 
+	
+    	<!--Begin Header--> 
+			<div id="header"><div align=right><font size=4 color=white><b>Logged in as:&nbsp;<dl:Session Key="sales.Profile.DISPLAYNAME">&nbsp;for&nbsp;</b></font><img align=middle src="/static/images/<dl:Session Key="sales.Profile.PORTALID">_LOGO.jpg" border=0></div> 
+			
+				
+            </div> 
+		<!--End Header-->
+        
+		<dl:include file="./templates/navigation.dl"> 
+    	
+        <!--Begin Div Main--> 
+    	<div id="main">
+		<p class="sectionheader">Recent Orders - Current as of <dl:Date> &nbsp;<dl:Time></p>
+				
+		<div style="width:85%;float:left;">
+		
+		<dl:DataSet Name="recentorders" TableName="table" pagesize=20 paginate>
+		<dl:DataSetHeader>
+				
+				<dl:include file="./templates/paginator.dl">
+				
+				<div style="clear:both;"></div>
+                            
+				<table border=1 width=100% bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1">
+			<tr class="tableheader">
+				<th width="12%" class="tableheader">Order #</th>
+				<th width="8%" class="tableheader">Order Date</th>
+				<th width="8%" class="tableheader">Order Time</th>
+				<th width="15%" class="tableheader">Status</th>
+				<th width="30%" class="tableheader">Bill To Name</th>
+				<th width="16%" class="tableheader">Start Ship</th>
+				<th width="15%" class="tableheader">Cancel Date</th>
+			</tr> 
+									</dl:DataSetHeader>
+
+			<dl:DataSetRow>
+				<tr >
+					<td>PortalCC<dl:DataSetColumn Name="ORDERID"></td>
+					<td><dl:DataSetColumn Name="adddate" format="{0:d}"></td>					
+					<td><dl:DataSetColumn Name="adddate" format="{0:t}"></td>
+					<td><dl:DataSetColumn Name="ORDERSTATUSDESCRIPTION" ></td>
+					<td><dl:DataSetColumn Name="billtoname" ></td>
+					<td><dl:DataSetColumn Name="startshipdate" format="{0:d}"></td>
+					<td><dl:DataSetColumn Name="canceldate" format="{0:d}"></td>					
+				</tr>			
+			</dl:DataSetRow>
+			
+			
+		</dl:DataSet>
+		
+		</table>
+		
+		</div>
+
+			
+		<!--End Div Main-->
+	
+ </div>    
+ 
+ <div style="clear:both;"></div>
+        <!--Begin Footer--> 
+    	<div id="footer"> 
+        	<p>Copyright &#169; 2009 - 2012 Hybrid Apparel LLC</p> 
+    	</div> 
+    	<!--End Footer--> 
+    
+    
+    <!--End Wrapper--> 
+    
+</div> 
+<!--End Container--> 
+ </div>
+	
+    
+</body> 
+
+</html>

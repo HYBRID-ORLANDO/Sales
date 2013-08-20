@@ -1,0 +1,113 @@
+﻿<dl:DataSet Name="QuickOrder" tablename="STYLES">
+<dl:DataSetRow> 
+<table border=0 cellspacing=0 cellpadding=0 width=100% style="background-color:white;">
+<tr>
+	<td valign=top width=50% style="padding:5px;"><p align=center><img border=0 src="../private/<dl:DataSetColumn Name="PREVIEW_ID">_L.jpg"></p></td>
+	<td valign=top rowspan=2 width=50% style="padding:5px;">
+		<img border=0 src="../private/programs/<dl:DataSetColumn Name="program_id">_T.png"><br<br><br>
+		<span style="font-size:11pt;"><dl:DataSetColumn Name="LICENSE">&nbsp;<dl:DataSetColumn Name="PRODUCTDESCRIPTION"></span>
+		<hr style="border-color:darkgrey;">
+		<div align=right style="font-size:8pt;line-height=110%;">Style#&nbsp;&nbsp;<dl:DataSetColumn Name="AS400PRCD">&nbsp;&nbsp;<dl:DataSetColumn Name="AS400CRCD">&nbsp;&nbsp;<dl:DataSetColumn Name="COLORDESCRIPTION"></div><br><br>
+		<dl:DatasetColumn Name="PRODUCTPRICE"  format="{0:C}"/>
+	<br><br>
+	</td>
+</tr>
+<tr>
+	<td width=50% style="font-size:6.5pt;line-height:140%;padding:10px;"><p align=center>
+
+	</p></td>		
+
+</tr>
+</table>
+  
+</dl:DataSetRow>   		
+</dl:DataSet>
+
+
+
+
+<table border="1" width="50%" bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1">
+  
+  <dl:DataSet Name="QUICKoRDER" TableName="Styles">
+
+    <dl:DataSetRow>
+      <tr>
+
+
+        <td>
+          <table border="1">
+            <tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+              <dl:DataSet Relationship="BySize">
+                <dl:DataSetRow>
+                  <td width="70">
+                    <dl:DataSetColumn Name="Bucket">
+				          </td>
+                </dl:DataSetRow>
+              </dl:DataSet>
+            </tr>
+            <tr>
+              <dl:DataSet Relationship="BySize">
+                <dl:DataSetRow>
+                  <td width="70">
+
+
+                    <input type="text" size="5" value="<dl:DataSetColumn Name='NextQty'>" name="additem"
+                    <dl:DataSetColumn Name='colorcode'>
+                      <dl:DataSetColumn Name='bucket'>
+                        " id="additem<dl:DataSetColumn Name='colorcode'>
+                          <dl:DataSetColumn Name='bucket'>
+                            " onblur="validateNumber('additem<dl:DataSetColumn Name='colorcode'>
+                              <dl:DataSetColumn Name='bucket'>');" />
+			
+				
+                  </td>
+                </dl:DataSetRow>
+              </dl:DataSet>
+            </tr>
+            <tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+              <dl:DataSet Relationship="BySize">
+                <dl:DataSetRow>
+                  <td width="70">
+                    Available
+                  </td>
+                </dl:DataSetRow>
+              </dl:DataSet>
+            </tr>
+            <tr>
+              <dl:DataSet Relationship="BySize">
+                <dl:DataSetRow>
+                  <td width="70">
+                    <dl:DataSetColumn name="Available" format="{0:n0}">
+			
+				</td>
+                </dl:DataSetRow>
+              </dl:DataSet>
+            </tr>
+            
+          </table>
+
+
+        </td>
+
+
+
+      </tr>
+    </dl:DataSetRow>
+
+
+
+
+  </dl:DataSet>
+</table>
+<div id="ajaxresponse">
+  
+</div>
+<ul>
+
+  <li>
+    <input type="image" src="./static/images/btn_medadditem.jpg" value="Add Item" onclick="ProcessQuickAddLineItem();" />
+  </li>
+  <li>
+    <input type="image" src="./static/images/btn_medcancel.jpg" onclick='$("#quickview").dialog("close");' value="Cancel Item"/>
+  </li>
+</ul>

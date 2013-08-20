@@ -1,0 +1,189 @@
+@charset "utf-8";
+
+/*Eliminate Brower Defaults*/
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	}
+
+ol, ul {
+	list-style: none;
+	}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+	}
+
+fieldset, img {
+	border: 0;
+	}
+
+caption, th {
+	text-align: left;
+	}
+
+q:before, q:after {
+	content:'';
+	}
+
+/* Defaults */
+
+body {font-size:12px;font-family:Palatino Linotype, Book Antiqua, Palatino, serif;text-align:center;background:#dddddd;}
+
+
+.clear 
+{
+	height:0px;
+	margin:0px;
+	padding:0px;
+	clear:both;
+}
+	
+.floatLeft
+{
+	float: left;
+}
+
+#container {
+	width:99%;
+	margin:0 auto;
+	text-align:left;
+	background:transparent;
+	}
+
+#wrapper {
+	background:transparent;
+	padding:0px;
+	margin:0px auto;
+	height:auto;
+	width:99%;
+	}
+	
+#header {
+	margin:1% 0px 0px 0px;
+	padding:0px 1% 0px 1%;
+	background-image:url(./images/bg_salesheader.jpg);
+	background-repeat:no-repeat;
+    background-color:#333333;
+	width:98%;
+	height:60px;
+	text-align:left;
+	}
+
+#header ul{width:75%;display:inline;color:#fff;margin-left:18%;vertical-align:top;margin-top:20px;float:left;}
+#header li{display:inline;color:#fff;font-size:18px;font-weight:bold;margin-right:20px;}
+.navlink {color:#ffffff;text-decoration:underline;}
+.navlink:hover{color:#abc8e2;}
+
+
+#main {
+	/*background-image:url(./images/background8.jpg);*/
+	background-repeat:repeat;
+	background:#ffffff;
+	min-height:400px;
+	width:98%;
+	margin:0px 0px 0px 0px;
+	padding:5px 1% 20px 1%;
+	float:left;
+	border:0px solid #333333;
+	}
+
+#billing {
+	width:100%;
+	height:auto;
+	background:transparent;
+	margin-bottom:5px;
+	float:left;
+	}
+
+#billingleft {
+	width:47%;
+	height:auto;
+	background:transparent;
+	float:left;
+	margin-right:5%;
+	padding:0;
+	}
+
+#billingright {
+	width:47%;
+	height:auto;
+	background:transparent;
+	float:left;
+	margin:0;
+	padding:0;
+	}
+
+#orderterms {
+	height:auto;
+	width:100%;
+	float:left;
+	background:transparent;
+	margin:5px 0px;
+	}
+
+.tableterms {width:100%;border:1px solid #333333;padding:2px;}
+.checkleft {width:22%;height:auto;float:left;margin-left:15%;margin-top:5px;}
+.checkleft p{font-weight:bold;font-size:14px;}
+.checkright {width:50%;height:auto;float:left;margin-top:5px;}
+.checkright p{font-weight:bold;font-size:14px;}
+
+	
+
+.orderwrapper {height:auto;float:left;width:100%;}
+.leftorder {width:40%;height:250px;float:left;}
+.active1 {height:auto;background:#ffffff;margin-top:5px;padding:3px;border:1px solid #333333;}
+.active1 ul{display:inline;}
+.active1 ul,li{display:inline;margin-right:10px;}
+.active2 {height:auto;background:#dddddd;margin-top:5px;padding:3px;border:1px solid #333333;}
+.active2 ul{display:inline;}
+.active2 ul,li{display:inline;margin-right:10px;}
+.active3 {float:left;width:58%;height:266px;background:#abc8e2;margin-left:5px;padding:5px;}
+.active3 table{margin:5px;}
+.active3,table,tr,td {padding:2px;font-weight:bold;}
+.inactive1 {height:122px;background:#cccccc;margin-bottom:6px;padding:5px;}
+.inactive2 {height:122px;background:#cccccc;padding:5px;}
+.inactive3 {float:left;width:58%;height:260px;background:#cccccc;margin-left:5px;padding:5px;}
+.selecteditem {font-size:16px;font-weight:bold;text-align:center;margin-top:20px;}
+.selecteddescription {font-size:14px;font-weight:bold;text-align:center;margin-top:5px;}
+.step {font-size:16px;font-weight:bold;}
+.steps {font-size:14px;font-weight:bold;display:inline;margin-top:5px;}
+.steps li{display:inline;margin-right:15px;}
+.stepsnext {color:#6f6f6f;}
+.stepsactive {color:#183152;}
+.stepscomplete {color:#375d81;}
+.inactivestep {font-size:16px;font-weight:bold;text-align:center;margin-top:45px;}
+.inactivestep3 {font-size:16px;font-weight:bold;text-align:center;margin-top:120px;}
+.centerselect {text-align:center;margin-top:20px;}
+.quantityheader {font-size:14px;font-weight:bold;}
+.availability {font-style:italic;text-align:center;font-weight:normal;}
+.tableheader {background:#bbbbbb;font-size:14px;font-weight:bold;padding:2px 10px;}
+.tablecentered {text-align:center;}
+.altrow {background:#eeeeee;}
+.sectionheader {font-size:16px;font-weight:bold;margin-bottom:5px;}
+.sectionnote {font-size:12px;font-weight:normal;}
+.smallbutton {vertical-align:middle;}
+.submitbuttons {float:right;margin-right:0px;margin-top:5px;}
+.submitbuttons li{margin-left:10px;}
+.optionlink {background-image:url(./images/bg_optionlink.jpg);background-repeat:no-repeat;background-color:#fff;color:#333;text-align:center;vertical-align:middle;width:290px;height:53px;padding:22px 0px 0px 0px;font-size:18px;font-weight:bold;float:left;margin-right:10px;margin-top:10px;}
+.confirm1 {font-size:18px;font-weight:bold;text-align:center;margin-top:5px;}
+.confirm2 {font-size:22px;font-weight:bold;text-align:center;margin-bottom:5px;}
+
+
+#footer {
+	background:transparent;
+	color:#333333;
+	margin:0px 0px 0px 0px;
+	height:40px;
+	float:left;
+	}
+	
+#footer p{width:860px;margin:0px 0px 0px 0px;padding:10px;text-align:left;font-weight:bold;}
+
+/*End CSS*/

@@ -1,0 +1,42 @@
+﻿<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head>
+<body class="container">	
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+    <div id="quickview">
+    <!--Error loading quick view-->
+    </div>
+<p style="font-size:16px;font-weight:bold;color:red;"><dl:Session Key="LastFormError"></p> 
+<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr>
+	<td width=20% valign=top>
+
+		<dl:Include File="ShoppingCanvas-DisplayCart.dl">
+		
+		<dl:Include File="ShoppingCanvas-Tags.dlwe">
+	</td>
+	<td width=80% valign=top>
+		<div style="width:100%;background:#999999;min-height:20px;float:left;">
+			<form action="./sales.ShoppingCanvas.dl">
+			<input type="hidden" name="T" value="Search">
+			<input type="hidden" name="Type" value="Freeform">
+			<b>Search For Styles:&nbsp;&nbsp;&nbsp;</b><input style="font-size:9pt;border-width:1px;" type=text name=tag id=tag size=30>
+			<input type="submit" value="GO" class="btn_go"></form>
+		</div>	
+		<dl:DataSet Name="ShoppingCanvas" tablename="STYLES" PAGINATE PAGESIZE=32>
+		<dl:DataSetEmptyTemplate>
+			<div align=center>
+			<br><br>No Search Results<br><br>
+			<a href="./sales.ShoppingCanvas.dl?T=ClearSearch"><u>Clear Search</u></a>
+			</div>
+		</dl:DataSetEmptyTemplate>
+		<dl:Include File="ShoppingCanvas-StyleGallery.dlwe">
+	</td>
+</tr>
+</table>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

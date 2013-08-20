@@ -1,0 +1,12 @@
+@media print{
+    @page {size: landscape}
+
+}
+.noPrint
+{
+    display:none;
+}
+h2{
+    font-size:12px;
+}
+

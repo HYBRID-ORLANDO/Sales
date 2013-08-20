@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+/*Eliminate Brower Defaults*/
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	}
+
+ol, ul {
+	list-style: none;
+	}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+	}
+
+fieldset, img {
+	border: 0;
+	}
+
+caption, th {
+	text-align: left;
+	}
+
+q:before, q:after {
+	content:'';
+	}
+
+/* Defaults */
+
+body {font-size:12px;font-family:Palatino Linotype, Book Antiqua, Palatino, serif;text-align:center;background:#dddddd;}
+
+
+.clear 
+{
+	height:0px;
+	margin:0px;
+	padding:0px;
+	clear:both;
+}
+	
+.floatLeft
+{
+	float: left;
+}
+
+#container {
+	width:1000px;
+	margin:0 auto;
+	text-align:left;
+	background:transparent;
+	}
+
+#wrapper {
+	background:transparent;
+	padding:0px;
+	margin:0px auto;
+	height:auto;
+	width:1000;
+	}
+	
+#header {
+	margin:0px;
+	padding:0px;
+	background-image:url(./images/bg_salesheader.jpg);
+	background-repeat:no-repeat;
+    background-color:#333333;
+	width:100%;
+	height:60px;
+	text-align:left;
+	}
+
+#header ul{width:880px;display:inline;color:#fff;margin-left:630px;vertical-align:top;margin-top:20px;float:left;}
+#header li{display:inline;color:#fff;font-size:18px;font-weight:bold;margin-right:20px;}
+#header li,a{color:#fff;text-decoration:none;}
+#header li,a:hover{color:#06f8d9;}
+.navlink {color:#ffffff;}
+
+
+#main {
+	/*background-image:url(./images/background8.jpg);*/
+	background-repeat:repeat;
+	background:#ffffff;
+	min-height:400px;
+	width:866px;
+	margin:0px 0px 0px 0px;
+	padding:5px 5px 20px 5px;
+	float:left;
+	border:2px solid #333333;
+	}
+
+.loggedin {font-size:14px;font-weight:bold;margin-left:5px;}
+.loggedin a{color:blue;}
+
+	
+#left {
+	background:transparent;
+	height:auto;
+	float:left;
+	width:620px;
+	padding:5px;
+	margin:0px;
+	}
+
+#left h2{font-size:18px;font-weight:bold;background:#333333;width:610px;height:auto;padding:5px;color:#ffffff;margin:0px;}
+#left h2,a{color:#ffffff;}
+
+.entry {float:left;width:600px;padding:5px 5px 15px 5px;height:auto;margin:0px 0px 10px 5px;border-bottom:1px solid #333333;}
+.entry h3{font-size:18px;font-weight:bold;color:#000000;}
+.entry h3,a{color:#000000;}
+.entrydate {font-size:14px;font-weight:bold;color:#333333;}
+.entrydate a{color:blue;}
+.relevant {margin-left:5px;font-size:12px;font-weight:bold;color:#333333;}
+.relevant a{color:blue;}
+.entrytext {margin:8px 0px 10px 5px;color:#000000;font-weight:bold;}
+.entryphoto {margin:5px;width:550px;text-align:center;}
+.entryphoto img{max-width:550px;max-height:550px;}
+.phototext {width:540px;font-size:12px;font-weight:bold;margin-top:5px;margin-left:8px;}
+.loginput {text-align:right;margin:8px 250px 0px 0px;font-weight:bold;}
+.leftleader {font-size:14px;font-weight:bold;margin:8px 0px 0px 5px;}
+.createfield {font-weight:bold;font-size:14px;margin:8px 0px 0px 10px;}
+.inputheader {font-size:16px;font-weight:bold;margin:8px 0px 0px 10px;}
+.inputbox {font-size:14px;margin:2px 0px 0px 10px;}
+.inputnote {font-size:14px;font-weight:regular;margin:5px 0px 0px 10px;}
+
+#right {
+	background:transparent;
+	float:left;
+	width:220px;
+	padding:5px;
+	height:auto;
+	margin-left:6px;
+	}
+
+#right h2{font-size:18px;font-weight:bold;background:#333333;width:210px;height:auto;padding:5px;color:#fff;margin:0px;}
+
+.rightlist {margin:0px 0px 8px 0px;width:208px;padding:5px;border:1px solid #333333;}
+.rightlist ul{margin:5px;display:block;}
+.rightlist li{display:block;font-size:12px;font-weight:bold;margin-top:3px;}
+
+#footer {
+	background:transparent;
+	color:#333333;
+	margin:0px 0px 0px 0px;
+	height:40px;
+	float:left;
+	}
+	
+#footer p{width:860px;margin:0px 0px 0px 0px;padding:10px;text-align:left;font-weight:bold;}
+
+/*End CSS*/

@@ -1,0 +1,97 @@
+<!-- the div is always needed -->
+<div id="lineitemsajax" name="lineitemsajax">
+<b><u>Current Order Items</u></b><br>
+<div style="font-size:9pt;color:darkgray;"><i>*click "x" to remove an item from your order</i></div><br>
+<table border=0 width=100% cellspacing=0 cellpadding=0 style="font-size:9pt;">
+<tr class="tableheader">
+	<th>&nbsp;</th>
+	<th><p align=left>Style</p></th>
+	<th>Color</th>
+	<th>Order Multiple</th>
+	<th>Scale/Qty</th>
+	<th><p align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Units</p></th>
+	<th><p align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ Each</p></th>
+	<th><p align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ Extd</p></th>
+</tr>
+<dl:DataSet Name="activeorder"  TableName="LineItems">
+<dl:DataSetRow>
+<tr>
+        <td style="padding:2px;"><INPUT title="Remove Item" TYPE=image src="./static/images/btn_x.gif" onLoad="CheckMultiplesCheckout(parseInt(document.getElementById('ordermultiple<dl:DataSetRowID>').value),<dl:DataSetRowID>);" VALUE="X" onclick="RemoveLineItem('<dl:DataSetRowID>');"></td>
+	<td style="padding:2px;"><dl:DataSetColumn Name=StyleNumber> <br /> <dl:DataSetColumn Name="Description"></td>
+	<td style="padding:2px;"><p align=center><dl:DataSetColumn Name=Color><input type=hidden id="LINECOST<dl:DataSetRowID>" value="<dl:DataSetColumn Name=Cost>" /><input type=hidden id="UOFM<dl:DataSetRowID>" value="<dl:DataSetColumn Name=UofM>" /></P></td>            
+        <td style="padding:2px;"><p align=center><dl:DataSetColumn Name=".ORDERMULTIPLE"></P><input type=hidden name="ordermultiple<dl:DataSetRowID>" id="ordermultiple<dl:DataSetRowID>" value="<dl:DataSetColumn Name=".ORDERMULTIPLE">"></td>   
+        <td style="padding:2px;">
+	   	<div align=center>
+		<table border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;" width=100%>
+		<tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+			<dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+			<dl:DataSetRow>
+				<th style="padding:2px;"><dl:DataSetColumn Name="SizeCode"></th>
+			</dl:DataSetRow>
+			<dl:DataSetFooter><th style="padding:2px;" colspan=2>Item Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th></dl:DataSetFooter>
+			</dl:DataSet>
+		</tr>
+		<tr>
+			<dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+			<dl:DataSetRow>
+				<td style="padding:2px;" align=center><input type=hidden id="HQTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>" value="<dl:DataSetColumn Name=Quantity>" /><input style="font-size:9pt;text-align:center;" type=text size=5 onblur="PerformLineItemUpdate('<dl:DataSetColumn Name=Bucket>',<dl:DataSetColumn Name=Sequence>,'QTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>','HQTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>');" onKeyUp="CheckMultiplesCheckout(parseInt(document.getElementById('ordermultiple<dl:DataSetColumn Name=Sequence>').value),<dl:DataSetColumn Name=Sequence>);" value="<dl:DataSetColumn Name=QUANTITY>" id="QTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>" name="QTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>"  /></td>
+			</dl:DataSetRow>
+			</dl:DataSet>
+			<td style="padding:2px;"><input style="font-size:9pt;text-align:center;" type=text size=3 disabled value="<dl:DataSetColumn Name=".TotalQuantity">" id="total<dl:DataSetRowID>" name="total<dl:DataSetRowID>"></td><td style="padding:2px;" id="totalmessage<dl:DataSetRowID>" align=center>&nbsp;</td>
+		</tr>
+		</table>
+		</div>
+        </td>     
+	<td style="padding:2px;" align=RIGHT><span id="LINEQTY<dl:DataSetRowID>"><dl:DataSetColumn Name=".TotalQuantity"></span></td> 
+	<td style="padding:2px;" align=right><dl:DataSetColumn Name=Cost FORMAT="{0:C}"></td>        
+	<td style="padding:2px;" align=right><span id="LINEEXTDCOST<dl:DataSetColumn name=sequence>">$0.00</span></td>        
+</tr>
+</dl:DataSetRow>
+<dl:DataSetAltRow>
+<tr>
+        <td style="padding:2px;"><INPUT title="Remove Item" TYPE=image src="./static/images/btn_x.gif" onLoad="CheckMultiplesCheckout(parseInt(document.getElementById('ordermultiple<dl:DataSetRowID>').value),<dl:DataSetRowID>);" VALUE="X" onclick="RemoveLineItem('<dl:DataSetRowID>');"></td>
+	<td style="padding:2px;"><dl:DataSetColumn Name=StyleNumber> <br /> <dl:DataSetColumn Name="Description"></td>
+        <td style="padding:2px;"><p align=center><dl:DataSetColumn Name=Color><input type=hidden id="LINECOST<dl:DataSetRowID>" value="<dl:DataSetColumn Name=Cost>" /><input type=hidden id="UOFM<dl:DataSetRowID>" value="<dl:DataSetColumn Name=UofM>" /></P></td>     
+        <td style="padding:2px;"><p align=center><dl:DataSetColumn Name=".ORDERMULTIPLE"></P><input type=hidden name="ordermultiple<dl:DataSetRowID>" id="ordermultiple<dl:DataSetRowID>" value="<dl:DataSetColumn Name=".ORDERMULTIPLE">"></td>    
+	<td style="padding:2px;">
+	   	<div align=center>
+		<table border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;" width=100%>
+		<tr style="border-bottom: solid 1pt #4c788e;" bgcolor="yellow">
+			<dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+			<dl:DataSetRow>
+				<th style="padding:2px;"><dl:DataSetColumn Name="SizeCode"></th>
+			</dl:DataSetRow>
+			<dl:DataSetFooter><th style="padding:2px;" colspan=2>Item Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th></dl:DataSetFooter>
+			</dl:DataSet>
+		</tr>
+		<tr>
+			<dl:DataSet Name="activeorder" Relationship="SizeBUckets">
+			<dl:DataSetRow>
+				<td style="padding:2px;"align=center><input type=hidden id="HQTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>" value="<dl:DataSetColumn Name=Quantity>" /><input style="font-size:9pt;text-align:center;" type=text size=5 onblur="PerformLineItemUpdate('<dl:DataSetColumn Name=Bucket>',<dl:DataSetColumn Name=Sequence>,'QTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>','HQTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>');" onKeyUp="CheckMultiplesCheckout(parseInt(document.getElementById('ordermultiple<dl:DataSetColumn Name=Sequence>').value),<dl:DataSetColumn Name=Sequence>); " value="<dl:DataSetColumn Name=QUANTITY>" id="QTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>" name="QTY<dl:DataSetColumn Name=Bucket><dl:DataSetColumn Name=Sequence>"  /></td>
+			</dl:DataSetRow>
+			</dl:DataSet>
+			<td style="padding:2px;"><input style="font-size:9pt;text-align:center;" type=text size=3 disabled value="<dl:DataSetColumn Name=".TotalQuantity">" id="total<dl:DataSetRowID>" name="total<dl:DataSetRowID>"></td><td style="padding:2px;" id="totalmessage<dl:DataSetRowID>" align=center>&nbsp;</td>
+		</tr>
+		</table>
+		</div>
+        </td>     
+	<td style="padding:2px;" align=RIGHT><span id="LINEQTY<dl:DataSetRowID>"><dl:DataSetColumn Name=".TotalQuantity"></span></td> 
+	<td style="padding:2px;" align=right><dl:DataSetColumn Name=Cost FORMAT="{0:C}"></td>        
+	<td style="padding:2px;" align=right><span id="LINEEXTDCOST<dl:DataSetColumn name=sequence>">$0.00</span></td>        
+</tr>
+</dl:DataSetAltRow>    
+</dl:DataSet>
+<tr>
+	<td style="padding:2px;" colspan=7 align=right><b>Extended Line Cost</b></td>
+	<td style="padding:2px;" align="right">
+		<span id="EXTDCOST">$0.00</span>
+	</td>
+</tr>
+<tr>			    
+	<td style="padding:2px;" colspan=8 align=RIGHT>
+		<span id="ordererror" style="display: none;"><font color=red>Order can't be processed, it's under the <dl:Session Key=sales.Profile.PortalMinimumOrderQTY> &nbsp;unit minimum</font><BR></span>
+		<b>Shipping/handling/taxes and order total are shown on next page</b>
+	</td>			
+</tr>
+</table>
+</div>

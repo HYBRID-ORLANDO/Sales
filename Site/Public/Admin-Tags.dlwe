@@ -1,0 +1,24 @@
+﻿
+
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Licenses</u></div>
+		<dl:DataSet Name=Dashboard TableName=LICENCES>
+		<dl:DataSetRow><div style="font-size:9pt;">
+  			<dl:DataSetColumn Name="LICENSE"><a  href="./sales.ShoppingCanvas.dl?T=Search&Tag=<dl:DataSetColumn Name="TAG">&Type=<dl:DataSetColumn Name="Type">"><font color=blue><dl:DatasetColumn Name="TAG" /></font></a></div>
+		</dl:DataSetRow>
+		</dl:DataSet><br>
+
+
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Category</u></div>
+		<dl:DataSet Name=Dashboard TableName=CATEGORY>
+		<dl:DataSetRow><div style="font-size:9pt;">
+  			<dl:DataSetColumn Name="CATEGORY"><a  href="./sales.ShoppingCanvas.dl?T=Search&Tag=<dl:DataSetColumn Name="TAG">&Type=<dl:DataSetColumn Name="Type">"><font color=blue><dl:DatasetColumn Name="TAG" /></font></a></div>
+		</dl:DataSetRow>
+		</dl:DataSet><br>
+		
+
+		<div style="font-size:9pt;line-height:130%;font-weight:bold;"><u>Gender</u></div>
+		<dl:DataSet Name=Dashboard TableName=GENDER>
+		<dl:DataSetRow><div style="font-size:9pt;">
+  			<dl:DataSetColumn Name="GENDER"><a  href="./sales.ShoppingCanvas.dl?T=Search&Tag=<dl:DataSetColumn Name="TAG">&Type=<dl:DataSetColumn Name="Type">"><font color=blue><dl:DatasetColumn Name="TAG" /></font></a></div>
+		</dl:DataSetRow>
+		</dl:DataSet><br>

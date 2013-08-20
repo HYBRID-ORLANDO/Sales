@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> 
+<head> 
+<title>Select Customer - Hybrid-Portal Sales Center Portal</title> 
+<link rel='stylesheet' type='text/css' href="./static/cc2.css" /> 
+<link rel="shortcut icon" href="./static/images/favicon.ico" type="image/x-icon"> 
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+<script type="text/javascript">
+  var SessionID = '<dl:Session ID>';
+</script>
+<script src="/static/Ajax.js" language="JavaScript"></script> 
+
+</head> 
+<body onload="RefreshCustomerAjaxBoxes(); "> 
+<input type=hidden id="ajaxresponse" value="" />
+<!--Begin Container--> 
+<div id="container"> 
+ 
+	<!--Begin Wrapper--> 
+    <div id="wrapper"> 
+	
+    	<!--Begin Header--> 
+			<div id="header"><div align=right><font size=4 color=white><b>Logged in as:&nbsp;<dl:Session Key="sales.Profile.DISPLAYNAME">&nbsp;for&nbsp;</b></font><img align=middle src="/static/images/<dl:Session Key="sales.Profile.PORTALID">_LOGO.jpg" border=0></div> 
+			
+				
+            </div> 
+		<!--End Header-->
+        
+		<dl:include file="./templates/navigation.dl">
+    	
+        <!--Begin Div Main--> 
+    	<div id="main"> 
+		    <div id="AjaxError"></div>
+	
+      
+			
+			<div style="clear:both;"></div>
+			
+			
+			
+			<div style="width:60%;float:left;margin:0;padding:0;border:1px solid #333;">
+			
+			<p class="homeheader">Select Customer</p>
+			
+			<p class="sectionheader2">Please select a customer to enter an order</p>
+				<p class="sectionheader2">If the customer does not exist yet, please <a href="././sales.customer.dl?T=Add">submit a new customer form</a>.</p>		
+			<!--Begin Customer Search-->
+            	<div class="custsearch2">
+                
+                    <p style="font-size:14px;font-weight:bold;color:#000;margin:0px 0px 0px 5px;">Search for Customer: <input type=text id="Customer" onclick="this.select();"  onkeyup="SearchCustomer();" ></p>
+                
+                </div>
+                <!--End Customer Search-->
+			
+			
+							
+			<div id="selectcustomerajax"></div>
+            
+			</div>
+			
+			<a href="././sales.customer.dl?T=Add" style="width:15%;float:left;height:auto;background:#333;border:1px solid #333;margin:0px 0px 0px 1%;font-size:22px;font-weight:bold;text-align:center;color:#fff;padding:15px;">
+			
+				Click Here To Submit a New Customer Form
+			
+			</a>
+			
+		<div style="clear:both;"></div>
+			
+			</div> 
+
+			
+		<!--End Div Main-->
+		
+		<div style="clear:both;"></div>
+ 
+        <!--Begin Footer--> 
+    	<div id="footer"> 
+        	<p>Copyright &#169; 2009 - 2012 Hybrid Apparel LLC</p> 
+    	</div> 
+    	<!--End Footer--> 
+    
+    </div>    
+    <!--End Wrapper--> 
+    
+</div> 
+<!--End Container--> 
+ 
+	
+    
+</body> 
+
+</html>

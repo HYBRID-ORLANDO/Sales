@@ -1,0 +1,282 @@
+﻿<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+<script type="text/javascript">
+  var SessionID = '<dl:Session ID>';
+</script>
+<script src="/static/Ajax.js" language="JavaScript"></script> 
+</head> 
+<body> 
+<input type=hidden id="ajaxresponse" value="" />
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+<dl:DataSet Name="activeorder" TableName="header">
+<font color=red size=4><dl:Session Key="LastFormError"></font>
+<dl:DataSetRow>
+<div style="width:99%;background:#ddd;border:1px solid #333;float:left;">
+	<ul style="margin-left:5px;">
+		<li style="display:inline;font-size:20px;font-weight:bold;margin-right:10px;"><dl:DataSetColumn DataSet="Customermaster" Name="FLNM2s" HTMLENCODE></li>
+	</ul><br>
+	Order Number: <font color=blue><b>HYBRIDCC<dl:DataSetColumn Name=".orderid"></b></font><br><br>
+	<dl:SessionView Key="sales.Profile.REGISTRATIONTYPE" value="2">
+	<dl:Conditional>
+	<dl:ConditionalCondition><dl:DataSetColumn Name=".ORDERSTATUS" DataSet="activeorder" TableName="header" ></dl:ConditionalCondition>
+	<dl:ConditionalValue>101</dl:ConditionalValue>	
+	<dl:ConditionalDoesntMatchTemplate>
+		<dl:Conditional>
+		<!-- only show the conditional approval when the order has just been received and has not been approved -->
+		<dl:ConditionalCondition><dl:DataSetColumn Name=".CRGSTATUS" DataSet="activeorder" TableName="header" ></dl:ConditionalCondition>
+		<dl:ConditionalValue>0</dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate> 
+			<form action="./sales.HybridInternal.dl">
+			<input type="hidden" name ="T" value="CSAcceptOrder" />
+			<input type="hidden" name="OrderID" value="<dl:DataSetColumn Name=".ORDERID" DataSet="activeorder" TableName="header" >" />
+			<p class="homeleader">This order requires approval to begin processing:</p>
+			<p class="homeleader">Please review the Customer Routing Guide and determine if this order should be accepted</p>
+			<div style="width:48%;float:left;margin-bottom:15px;">
+				<p class="homeheader">Accept Order</p>
+				<p class="homeleader">Please estimate the shipping and handling charges so the customer can decide if they want to proceed with this order</p>
+				<table>
+				<tr>
+					<td><input type=hidden name=shipping value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.Shipping Format={0:C}>"</td>
+					<td><input type=hidden name=handling value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.Handling Format={0:C}>"</td>
+				</tr>
+				</table>
+				<p class="homeleader">Acceptance Notes:</p>
+				<p class="homeleader"><textarea name=CSComments rows=5 cols=40></textarea></p>
+				<p class="homeleader"><input type=submit name=Action value="Accept Order" /></p>
+				<p class="homeleader">Label Information - Transmitted to Cal Cartage</p>
+				<p class="homeleader">Label Type: 		    
+					<select id="LabelType" name="LabelType">
+						<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="LabelType" StaticValues="S,P" StaticNames="Standard, Prepack">
+					</select>
+				</p>
+				<p class="homeleader">Customer Dept:<input type=text name=CustomerDept value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerDept >"</p>
+				<p class="homeleader">Option 1:<input type=text name=CustomerOpt1 value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerOpt1 >"</p>
+				<p class="homeleader">Option 2:<input type=text name=CustomerOpt2 value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerOpt2 >"</p>
+				<p class="homeleader">Option 3:<input type=text name=CustomerOpt3 value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerOpt3 >"</p>
+			</div>
+			<div style="width:48%;float:left;margin-bottom:15px;margin-left:2%;">
+				<p class="homeheader">Decline Order</p>
+				<p class="homeleader">To decline this order, please enter a reason below and select "Cancel Order"</p>
+				<p class="homeleader"><textarea name=CancelReason rows=5 cols=40></textarea></p>
+				<p class="homeleader"><input type=submit name=Action value="Cancel Order" /></p>
+			</div>
+			<div style="clear:both;"></div>
+			</form>
+			<hr />
+			<br />
+		</dl:ConditionalMatchesTemplate>
+		</dl:Conditional>
+		<dl:Conditional>
+                <!-- this is shown when the order is ready to ship but needs routing info  -->
+			<dl:ConditionalCondition><dl:DataSetColumn Name=".ORDERSTATUS" DataSet="activeorder" TableName="header" ></dl:ConditionalCondition>
+			<dl:ConditionalValue>3</dl:ConditionalValue>										
+			<dl:ConditionalMatchesTemplate> 
+				<form action="./sales.HybridInternal.dl">
+				<input type="hidden" name ="T" value="CSTransmitOrder" />
+				<input type="hidden" name="OrderID" value="<dl:DataSetColumn Name=".ORDERID" DataSet="activeorder" TableName="header" >" />
+				<B>This order is ready to ship, please complete the following information to send the order to the warehouse</B><br />
+				Actual shipping charges:<br /> <input type=text name=shipping value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.Shipping Format={0:C}>"  /><br />					
+				Actual handling charges:<br /> <input type=text name=handling value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.Handling Format={0:C}>"  /><br />					
+				<table width=70% border=1>
+				<tr>
+					<th>Packing Instructions</th>
+					<th>Routing Instructions</th>
+					<th>Label Instructions</th>
+				</tr>
+				<tr>
+					<td><textarea rows=5 cols=30 name="PACKINGINSTRUCTIONS"><dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.PACKINGINSTRUCTIONS Format={0:C}></textarea></td>
+					<td><textarea rows=5 cols=30 name="ROUTINGINSTRUCTIONS"><dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.ROUTINGINSTRUCTIONS Format={0:C}></textarea></td>
+					<td><textarea rows=5 cols=30 name="LABELINSTRUCTIONS"><dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=.LABELINSTRUCTIONS Format={0:C}></textarea></td>
+				</tr>
+				</table>				
+				<p class="homeleader">Label Type: 		    
+					<select id="LabelType" name="LabelType">
+						<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="LabelType" StaticValues="S,P" StaticNames="Standard, Prepack">
+					</select>
+				</p>
+				<p class="homeleader">Customer Dept:<input type=text name=CustomerDept value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerDept >"</p>
+				<p class="homeleader">Option 1:<input type=text name=CustomerOpt1 value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerOpt1 >"</p>
+				<p class="homeleader">Option 2:<input type=text name=CustomerOpt2 value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerOpt2 >"</p>
+				<p class="homeleader">Option 3:<input type=text name=CustomerOpt3 value="<dl:DataSetColumn DataSet=ActiveOrder TableName=Header Name=CustomerOpt3 >"</p>
+				<input type=submit name=Action value="Ship Order" /><br />															<br />
+				</form>
+			</dl:ConditionalMatchesTemplate>
+		</dl:Conditional>
+                </dl:ConditionalDoesntMatchTemplate>			
+	</dl:Conditional>
+	</dl:SessionView>
+ 	<dl:Conditional>
+		<!-- only show the conditional approval when the order has just been received and has not been approved -->
+		<dl:ConditionalCondition><dl:DataSetColumn Name=".CRGSTATUS" DataSet="activeorder" TableName="header" ></dl:ConditionalCondition>
+		<dl:ConditionalValue>2</dl:ConditionalValue>										
+		<dl:ConditionalMatchesTemplate> 
+			<div style="font-size:10pt;padding:5px;">
+			<form action="./sales.Order.dl">
+			<input type="hidden" name ="T" value="scAcceptOrder" />
+			<input type="hidden" name="OrderID" value="<dl:DataSetColumn Name=".ORDERID" DataSet="activeorder" TableName="header" >" >
+			<p style="margin:5px 0px 0px 5px;font-size:18px;font-weight:bold;">This order has been approved, please review the estimated shipping and handling charges, as well as any customer service comments: <br /></P>
+			
+			<b>Customer Service Notes:</b><br />
+			<dl:DataSetColumn DataSet="activeorder" TableName="header" Name=".CSCOMMENTS" htmlencode><br />
+			<HR />
+			To accept the estimated charges and any comments please click on "Process Order", to reject the changes and cancel the order, please click on "Cancel Order"<br />
+			<p class="homeleader">Notes for Customer Service (does not print):</p>
+			<p class="homeleader"><textarea name=CSComments rows=5 cols=40></textarea></p>
+			<input type=submit name=Action value="Process Order" />				
+			<input type=submit name=Action value="Cancel Order" /><br /><br /><br />
+			</form>
+			</div>
+		</dl:ConditionalMatchesTemplate>
+		</dl:Conditional>
+	<b><u>Order History</u></b>
+	<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+	<tr class="tableheader">
+		<th style="padding:2px;" align=left><u>Order Status</u></th>
+		<th style="padding:2px;" align=left><u>Carrier Tracking #</u></th>
+		<th style="padding:2px;" align=left><u>Edit Date</u></th>
+		<th style="padding:2px;" align=left><u>Entry Date</u></th>
+		<th style="padding:2px;" align=left><u>Cancel Date</u></th>
+		<th style="padding:2px;" align=left><u>Invoice Date</u></th>
+	</tr>
+	<tr>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".ORDERSTATUSDESCRIPTION">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".SHIPMENTTRACKINGID">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".ADDDATE">&nbsp;</td>
+                <td style="padding:2px;" ><dl:DataSetColumn Name=".ORIGINALADDDATE">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".CANCELLEDDATE">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".INVOICEDATE" Format='{0:d}'>&nbsp;</td>
+	</tr>
+	</table>
+	<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name=".orderstatus"></dl:ConditionalCondition>
+		<dl:ConditionalValue>0</dl:ConditionalValue>
+		<dl:ConditionalDoesntMatchTemplate>
+			<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+			<tr class="tableheader">
+				<th style="padding:2px;" align=left><u>Notice Status</u></th>
+				<th style="padding:2px;" align=left><u>Notice Date</u></th>
+				<th style="padding:2px;" align=left><u>Cancel Reason</u></th>
+			</tr>
+			<tr>
+				<td style="padding:2px;"><dl:DataSetColumn Name=".NOTICESTATUSDESCRIPTION">&nbsp;</td>
+				<td style="padding:2px;"><dl:DataSetColumn Name=".NOTICEDATE">&nbsp;</td>
+				<td style="padding:2px;"><dl:DataSetColumn Name=".CANCELREASONDESCRIPTION">&nbsp;</td>
+			</tr>
+			</table>
+		</dl:ConditionalDoesntMatchTemplate>
+	</dl:Conditional>
+	<br><br><b><u>Internal References</u></b><br>
+	<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+	<tr class="tableheader">
+		<th style="padding:2px;" align=left><u>Transfer Status</u></th>
+		<th style="padding:2px;" align=left><u>In VPS Date</u></th>
+		<th style="padding:2px;" align=left><u>VPS Order ID</u></th>					
+		<th style="padding:2px;" align=left><u>EPL Date</u></th>					
+	</tr>
+	<tr>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".TRANSFERSTATUS">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".INVPSDATE">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".VPSORDERID">&nbsp;</td>
+		<td style="padding:2px;" ><dl:DataSetColumn Name=".EPLDATE">&nbsp;</td>
+	</tr>
+        <tr class="tableheader">
+        	<th style="padding:2px;" align=left colspan=2><u>Allocation Message</u></th>
+                <th style="padding:2px;" align=left colspan=2><u>Last Allocation Run</u></th>
+	</tr>
+        <tr>
+        	<td  style="padding:2px;" colspan=2><dl:DataSetColumn Name=".allocationmessage">&nbsp;</td>
+		<td  style="padding:2px;" colspan=2><dl:DataSetColumn Name=".lastallocationdate">&nbsp;</td>                    
+	</tr>
+	<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name="HOLDORDER"></dl:ConditionalCondition>
+		<dl:ConditionalValue>1</dl:ConditionalValue>
+		<dl:ConditionalMatchesTemplate>
+		<tr>
+			<td colspan=4 style="padding:2px;"><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="HoldOrder" StaticValues="0,1" StaticNames=" ,Order Placed on Processing Decision Hold"></td>
+		</tr>
+		</dl:ConditionalMatchesTemplate>
+		</dl:Conditional>
+	</table>
+</div><br><br>
+<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+<tr>
+	<td valign=top><b>Order Options:</b></td>
+	<dl:Conditional>
+		<dl:ConditionalCondition><dl:DataSetColumn Name=".orderstatus"></dl:ConditionalCondition>
+		<dl:ConditionalValue>0</dl:ConditionalValue>
+		<dl:ConditionalMatchesTemplate>
+			<td valign=top><a href="./sales.order.dl?T=CancelOrder&OrderID=<dl:DataSetColumn Name=.OrderID>"><img src="./static/images/btn_cancel.gif" style="vertical-align:middle;"> Cancel Order</a></td>
+			<td valign=top><a href="./sales.order.dl?T=SelectOrder&OrderID=<dl:DataSetColumn Name=.OrderID>"><img src="./static/images/btn_edit.gif" style="vertical-align:middle;"> Edit Order</a></td>
+			<td valign=top><a href="./sales.order.dl?T=DuplicateOrder&OrderID=<dl:DataSetColumn Name=.OrderID>"><img src="./static/images/btn_duplicate.gif" style="vertical-align:middle;"> Duplicate Order</a></td>
+		</dl:ConditionalMatchesTemplate>
+		<dl:ConditionalDoesntMatchTemplate>
+			<td valign=top><a href="./sales.order.dl?T=DuplicateOrder&OrderID=<dl:DataSetColumn Name=.OrderID>"><img src="./static/images/btn_duplicate.gif" style="vertical-align:middle;"> Duplicate Order</a></td>
+		</dl:ConditionalDoesntMatchTemplate>
+	</dl:Conditional>
+	<td valign=top>
+		<a href="javascript:ShowEmailOrderForm();"><img src="./static/images/btn_email.gif" style="vertical-align:middle;"> Email Order</a>
+		<div id="EmailOrderForm" style="display:none;font-size:10pt;">
+			<span id="EmailResult"></span>
+		        Enter email address to send order to:<br />
+	        	<input type=text style="font-size:9pt;" id="EmailOrderTo"  value="<dl:DataSet Name="CustomerMaster"><dl:DataSetRow><dl:DataSetColumn Name="EMAL2s" StopTextAt=" "></dl:DataSetRow></dl:DataSet>" size="25" /><br />
+		        Note:<br />
+		        <textarea cols=25 rows=3 name="note" style="font-size:9pt;"  id="note"></textarea><br />
+		        <input type=button value="Send Email" onclick="SendOrderEmail();"/>
+		</div>
+	</td>
+	<dl:Conditional>
+	<dl:ConditionalCondition><dl:DataSetColumn Name=".vpsinvoiceid"></dl:ConditionalCondition>
+	<dl:ConditionalValue>0</dl:ConditionalValue>
+	<dl:ConditionalDoesntMatchTemplate>
+		<td valign=top>
+			<a href="javascript:ShowEmailInvoiceForm();"><img src="./static/images/btn_email.gif" style="vertical-align:middle;"> Email Invoice</a>
+                        <div id="EmailInvoiceForm" style="display: none";>
+                        	<span id="EmailInvoiceResult"></span>
+                        	Enter email address to send invoice to:<br />
+                        	<input type=hidden name=invoiceid id=invoiceid value="<dl:DataSetColumn Name=.VPSINVOICEID>" />
+                        	<input type=text id="EmailInvoiceTo"  value="<dl:DataSet Name="CustomerMaster"><dl:DataSetRow><dl:DataSetColumn Name="EMAL2s" StopTextAt=" "></dl:DataSetRow></dl:DataSet>" size="25" /><br />
+                        	Note:<br />
+                        	<textarea cols=25 rows=3 name="note" id="invoicenote"></textarea><br />
+                        	<input type=button value="Send Invoice" onclick="SendInvoiceEmail();"/></div>
+            	</td>		
+		<td valign=top>
+			<a href="./sales.order.dl?T=ViewInvoice&InvoiceID=<dl:DataSetColumn Name=.VPSINVOICEID>"><img src="./static/images/btn_view.gif" style="vertical-align:middle;"> View Invoice</a>
+		</td>
+	</dl:ConditionalDoesntMatchTemplate>
+	</dl:Conditional>
+	<td valign=top><a href="./sales.order.dl?T=PrintOrder&OrderID=<dl:DataSetColumn Name=.OrderID>" target="_blank"><img src="./static/images/btn_print.gif" style="vertical-align:middle;"> Print Order</a></td>
+</tr>
+</table>
+<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+<tr>
+	<td colspan=2><div id="AjaxError" style="font-weight:bold;"></div><br><br></td>
+</tr>
+<dl:Include File="Order-Header.dlwe">
+<tr>
+	<td colspan=2>	
+		<dl:Include File="Order-LineItems.dlwe">
+		<table align="right" style="font-size:10pt;padding:5px;" width="20%">
+		<dl:DataSet Name="activeorder" TableName="totals">
+		<dl:DataSetRow>
+		<tr>
+			<td colspan=4 align=RIGHT>
+				<b><dl:DataSetColumn Name="Description"></b>
+			</td>
+			<td align="right">
+				<dl:DataSetColumn Name="Amount" FORMAT="{0:C}">
+			</td>
+		</tr>
+		</dl:DataSetRow>
+		</dl:DataSet>
+		</table>
+	</td>
+</tr>
+</table>
+</dl:DataSetRow>
+</dl:DataSet>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

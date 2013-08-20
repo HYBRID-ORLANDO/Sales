@@ -1,0 +1,388 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+<script type="text/javascript">
+    var SessionID = '<dl:Session ID>';
+    var OrderMinimum = '<dl:Session Key=sales.Profile.PortalMinimumOrderQTY>';
+    var saved = false;
+     window.onbeforeunload = function () {
+    SaveHeader();
+};
+
+</script>
+<script>
+function CheckMultiplesCheckout(Multiple,RowID)
+{
+	document.getElementById('total' + RowID).value = 0;
+	var inputItems = document.getElementsByTagName("input");
+	//Assemble the querystring
+	for (var i = 0; i < inputItems.length; i++)
+	{	
+		for (var x = 1; x <= 12; x++)
+		{
+			if (inputItems[i].id.indexOf('QTY' + x + RowID)  == 0)
+			{
+				document.getElementById('total' + RowID).value = parseInt(document.getElementById('total' + RowID).value) + parseInt(inputItems[i].value);
+			}	
+
+		}
+
+	}
+	if (parseInt(document.getElementById('total' + RowID).value) > 0)
+	{
+		if (parseInt(document.getElementById('total' + RowID).value) % Multiple > 0)
+		{
+			document.getElementById('totalmessage' + RowID).innerHTML = '<span style="font-size:8pt;font-weight:bold;color:red;">X</span>';
+		}
+		else
+		{
+			document.getElementById('totalmessage' + RowID).innerHTML = '<span style="font-size:8pt;font-weight:bold;color:green;">OK</span>';
+		}
+
+	}
+	else
+	{
+		document.getElementById('totalmessage' + RowID).innerHTML = "&nbsp;";
+	}
+}
+function FinalCheck()
+{
+
+	var i = 0;
+	while (document.getElementById('total' + i) != null)
+	{
+		if (parseInt(document.getElementById('total' + i).value) > 0)
+		{
+			if (parseInt(document.getElementById('total' + i).value) % parseInt(document.getElementById('ordermultiple' + i).value) > 0)
+			{
+				return false;
+			}
+
+		}
+		i++;
+
+	}
+	return true;
+
+
+}
+
+
+</script>
+<script>
+   
+  
+   // build and store the customer bill to address book for the drop down
+   var Count = <dl:DataSet Name="AddressMaster" TableName="BillTo"><dl:DataSetHeader><dl:DataSetRowCount></dl:DataSetHeader></dl:DataSet>;
+   var BillToArray = new Array()
+   for(itt=0;itt<Count;itt++)
+   {
+    BillToArray[itt] = new Array(8);
+   }
+   <dl:DataSet Name="AddressMaster" TableName="BillTo">
+   <dl:DataSetRow>
+   BillToArray[<dl:DataSetRowID>][0] = '<dl:DataSetColumn Name="FULLNAME">';
+   BillToArray[<dl:DataSetRowID>][1] = '<dl:DataSetColumn Name="ADDRESS">';
+   BillToArray[<dl:DataSetRowID>][2] = '<dl:DataSetColumn Name="ADDRESS2">';
+   BillToArray[<dl:DataSetRowID>][3] = '<dl:DataSetColumn Name="CITY">';
+   BillToArray[<dl:DataSetRowID>][4] = '<dl:DataSetColumn Name="STATE">';
+   BillToArray[<dl:DataSetRowID>][5] = '<dl:DataSetColumn Name="ZIP">';
+   BillToArray[<dl:DataSetRowID>][6] = '<dl:DataSetColumn Name="PHONE">';   
+   BillToArray[<dl:DataSetRowID>][7] = '<dl:DataSetColumn Name="COUNTRY">';               
+   </dl:DataSetRow>
+   </dl:DataSet>
+   
+   Count = <dl:DataSet Name="AddressMaster" TableName="ShipTo"><dl:DataSetHeader><dl:DataSetRowCount></dl:DataSetHeader></dl:DataSet>;
+   var ShipToArray = new Array()
+   for(itt=0;itt<Count;itt++)
+   {
+    ShipToArray[itt] = new Array(8);
+   }
+   <dl:DataSet Name="AddressMaster" TableName="ShipTo">
+   <dl:DataSetRow>
+   ShipToArray[<dl:DataSetRowID>][0] = '<dl:DataSetColumn Name="FULLNAME">';
+   ShipToArray[<dl:DataSetRowID>][1] = '<dl:DataSetColumn Name="ADDRESS">';
+   ShipToArray[<dl:DataSetRowID>][2] = '<dl:DataSetColumn Name="ADDRESS2">';
+   ShipToArray[<dl:DataSetRowID>][3] = '<dl:DataSetColumn Name="CITY">';
+   ShipToArray[<dl:DataSetRowID>][4] = '<dl:DataSetColumn Name="STATE">';
+   ShipToArray[<dl:DataSetRowID>][5] = '<dl:DataSetColumn Name="ZIP">';
+   ShipToArray[<dl:DataSetRowID>][6] = '<dl:DataSetColumn Name="PHONE">';         
+   ShipToArray[<dl:DataSetRowID>][7] = '<dl:DataSetColumn Name="COUNTRY">';         
+   </dl:DataSetRow>
+   </dl:DataSet>
+   
+</script>
+<script src="/static/Ajax.js" language="JavaScript"></script> 
+<script language="JavaScript" src="/static/CalendarPopup.js"></script> 
+<script language="JavaScript"> 
+var cal = new CalendarPopup();
+</script> 
+</head> 
+<body onload="RefreshAjaxBoxes(); HandleTerms();" > 
+<input type=hidden id="ajaxresponse" value="" />
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+<form name="header" onsubmit="ProcessHeaderForm(); return false;" >
+<div style="width:99%;background:#ddd;border:1px solid #333;float:left;">
+	<ul style="margin-left:5px;">
+		<li style="display:inline;font-size:20px;font-weight:bold;margin-right:10px;"><dl:DataSetColumn DataSet="Customermaster" Name="FLNM2s" HTMLENCODE></li>
+	</ul>
+</div><br><br>
+<dl:Conditional>
+<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+<dl:ConditionalValue>Edit</dl:ConditionalValue>
+<dl:ConditionalMatchestemplate><div style="font-size:14pt;"><font color=red>You Are editing order# HYBRIDCC<dl:DataSetColumn DataSet="ACTIVEORDER" Name=".ORDERID" HTMLENCODE>. If you don't wish to make changes click</font>&nbsp;<a class="btn-blue" title="Cancel Changes" href="./sales.ShoppingCanvas.dl?t=ReStart">Cancel Changes</a></div></dl:ConditionalMatchestemplate>
+<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+</dl:Conditional>
+<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+<tr>
+	<td colspan=2><div id="AjaxError" style="font-weight:bold;"></div><br><br></td>
+</tr>
+<tr>
+	<td width=50% valign=top><b><u>Bill To Information</u></b><br><br>
+	<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+	<tr>
+		<td nowrap style="padding:2px;">Address Book</td>
+		<td style="padding:2px;">
+			<select  style="font-size:8pt;border-width:1px;" id="BillToAddressBook" onchange="HandleBillToAddressBook();">
+				<option  value=-1>Enter Address</option>
+				<dl:DataSet Name="AddressMaster" Tablename="BillTo">
+			        <dl:DataSetRow><option value="<dl:DataSetRowID>"> <dl:DataSetColumn Name="address" sizelimit="10" sizelimittext=".." htmlencode>&nbsp;<dl:DataSetColumn Name="city" htmlencode sizelimit="10" sizelimittext="..">&nbsp;<dl:DataSetColumn Name="state" htmlencode>, &nbsp;<dl:DataSetColumn Name="zip" htmlencode></option></dl:DataSetRow>
+				</dl:DataSet>
+		       </select>
+		</td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Name</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='BillToName'>" id="BillToName" name="BillToName" onblur="validateNotEmpty('BillToName');" /></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='BillToAddress'>" id="BillToAddress" name="BillToAddress" onblur="validateNotEmpty('BillToAddress');" /></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address 2</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='BillToAddress2'>" id="BillToAddress2" name="BillToAddress2"   /></td>
+	</tr>
+	<tr>
+		<td nowrap valign=top style="padding:2px;">City, State, Zip</td>
+		<td style="padding:2px;">
+			<input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='BillToCity'>" id="BillToCity" name="BillToCity" onblur="validateNotEmpty('BillToCity');" size=20/>
+			<select style="font-size:8pt;border-width:1px;" id="BillToState" >
+				<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="BillToState" StaticValues=" ,AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY">
+			</select>
+			<input style="font-size:8pt;border-width:1px;" type="TEXT"  value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='BillToZip'>" name="BillToZip" id="BillToZip" onblur="validateNotEmpty('BillToZip');"  size=9 />
+			<select style="font-size:8pt;border-width:1px;" id="BillToCountry"  ><dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="BillToCountry" StaticValues="USA,OTH" StaticNames="USA,FOREIGN"></select>
+			<h6>For foreign orders, country must be specified in city field - zip code should be blank</h6>
+	       </td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Phone</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='BillToPhone'>" id="BillToPhone" name="BillToPhone" onblur="validateNotEmpty('BillToPhone');" /></td>
+	</tr>
+	</table>
+	</td>
+	<td width=50% valign=top><b><u>Ship To Information</u></b><br><br>
+	<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+        <tr>
+		<td nowrap style="padding:2px;">Address Book</td>
+		<td style="padding:2px;">
+			<select style="font-size:8pt;border-width:1px;" id="ShipToAddressBook" onchange="HandleShipToAddressBook();">			        
+				<option  value=-1>Enter Address</option>
+				<option value=-2>Copy Bill To Address</option>
+				<dl:DataSet Name="AddressMaster" Tablename="ShipTo">
+				<dl:DataSetRow><option value="<dl:DataSetRowID>"> <dl:DataSetColumn Name="address" sizelimit="10" sizelimittext=".." htmlencode>&nbsp;<dl:DataSetColumn Name="city" htmlencode sizelimit="10" sizelimittext="..">&nbsp;<dl:DataSetColumn Name="state" htmlencode>, &nbsp;<dl:DataSetColumn Name="zip" htmlencode></option></dl:DataSetRow>
+				</dl:DataSet>
+		       </select>
+		</td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Name</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ShipToName'>" name="ShipToName" id="ShipToName" onblur="validateNotEmpty('ShipToName');" /></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ShipToAddress'>" name="ShipToAddress" id="ShipToAddress" onblur="validateNotEmpty('ShipToAddress');" /></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address 2</td>
+		<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ShipToAddress2'>" name="ShipToAddress" id="ShipToAddress2"   /></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">City, State, Zip</td>
+		<td style="padding:2px;">
+			<input style="font-size:8pt;border-width:1px;" type="text"  value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ShipToCity'>" name="ShipToCity" id="ShipToCity" onblur="validateNotEmpty('ShipToCity');"  size=20/>
+			<select style="font-size:8pt;border-width:1px;" id="ShipToState"  >
+				<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="ShipToState" StaticValues=" ,AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY">										
+			</select>
+			<input style="font-size:8pt;border-width:1px;" type="TEXT"  value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ShipToZip'>" name="ShipToZip" id="ShipToZip" onblur="validateNotEmpty('ShipToZip');"  size=9 />
+		</td>
+	</tr>
+	<tr>
+		<td style="padding:2px;">&nbsp;</td>
+		<td style="padding:2px;">&nbsp;</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td colspan=2>
+		<br><BR><br><b><u>Order Information</u></b><br><br>
+		<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+		<tr>
+			<td style="padding:2px;">Customer PO:</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CustomerPO'>" name="CustomerPO" id="CustomerPO" onblur="validateNotEmpty('CustomerPO');"  /></td>
+			<td style="padding:2px;">Terms:</td>
+			<td style="padding:2px;">
+				<select style="font-size:8pt;border-width:1px;" id="terms" onchange="HandleTerms();" >
+					<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="terms" ListSource="Column" ListSourceDataSet="CustomerMaster" ListSourceDataSetTableName="Terms" ListSourceValueColumn="PORTALTERMSCODE" ListSourceValueDisplayColumn="DESCRIPTION">													    		
+				</select>
+			</td>
+			<td style="padding:2px;">Start Ship Date:</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" size="9" value="<dl:DataSetColumn DataSet='ActiveOrder' Format='{0:d}' TableName='Header' Name='StartShipDate'>" name="StartShipDate" id="StartShipDate" onblur="validateNotEmpty('StartShipDate');"     /> </td>
+			<td style="padding:2px;"><img onclick="cal.select(document.forms['header'].StartShipDate,'StartShipDate','M/dd/yyyy','<dl:DataSetColumn DataSet='ActiveOrder' Format='{0:d}' TableName='Header' Name='StartShipDate'>'); return false;" src="./static/images/btn_calblue.jpg"> &nbsp;<dl:DataSetCheckboxColumn DataSet="ActiveOrder" TableName="Header" DOMIDName="CanShipEarly" Name="CanShipEarly" valign="middle">&nbsp;Can Ship Early</td>
+			<td style="padding:2px;">Cancel Date:</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type="text" size="9" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CancelDate' Format='{0:d}'>"  name="CancelDate" id="CancelDate" onblur="validateNotEmpty('CancelDate');"   /></td>
+			<td style="padding:2px;"><img src="./static/images/btn_calred.jpg" onclick="cal.select(document.forms['header'].CancelDate,'CancelDate','M/dd/yyyy','<dl:DataSetColumn DataSet='ActiveOrder' Format='{0:d}' TableName='Header' Name='CancelDate'>'); return false; "></td>
+		</tr>
+		</table>
+		<div id="checkinfo" style="display: none;">
+		<table class="tableterms">
+		<tr>
+			<td>
+				<div class="checkleft"><p>Wire Transfer Instructions</p></div>
+				<div class="checkright">
+					Beneficiary:<br />
+					Hybrid Promotions, LLC<br />
+					Bank Name: Wachovia Bank<br />
+ 					Address: 9001 Firestone Blvd., Suite 102 Downey, CA  90241<br />
+ 					Branch: Downey<br />
+					Account #: 2006000072564<br />
+					Fed Routing No.: 122287170<br />
+					Swift Code: PNBPUS33<br />
+				</div>
+			</td>
+		</tr>
+		</table>
+		</div>
+		<div id="creditcardinfo" style="display: none; ">
+		<br>
+		<font color=darkred><b>Credit Card Customers:</b>  Your card will only be charged when your order ships. When placing an order, we will <u><b>charge and reverse</b></u> $1.00 to validate the card.</font>
+		<br><br>
+		<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+		<tr>
+			<td style="padding:2px;">Credit Card Type:</td>
+			<td style="padding:2px;">
+				<select style="font-size:8pt;border-width:1px;" id="CreditCardType" name="creditcardtype" >
+					<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="CreditCardType" StaticValues="v,m,a,d" StaticNames="Visa,Mastercard, American Express,Discover">													    		
+				</select>
+			</td>
+			<td style="padding:2px;">Card #:</td>
+			<td style="padding:2px;">
+
+
+			
+
+
+				<input type=hidden id="CreditCardNumber"  name="creditcardnumber"          value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CreditCardNumber'>" />
+				<input type=text   id="CreditCardNumbertxt"  name="creditcardnumbertxt"  onkeyup="document.getElementById('CreditCardNumber').value = document.getElementById('CreditCardNumbertxt').value;"  
+					value="<dl:Conditional>
+						<dl:ConditionalCondition></dl:ConditionalCondition>
+						<dl:ConditionalValue><dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CreditCardNumber'></dl:ConditionalValue>
+						<dl:ConditionalMatchestemplate></dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate><dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CreditCardNumber' sizelimit='4' filltotext='*' filltosize=16></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>" onblur="validateNotEmpty('CreditCardNumbertxt');"   size="20" style="font-size:8pt;border-width:1px;"></td>
+			<td style="padding:2px;">Expiration:</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" type=text id="ExpirationMonth" name="expirationmonth" size=2 value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ExpirationMonth'>" onblur="validateNotEmpty('ExpirationMonth');" />/<input style="font-size:8pt;border-width:1px;" type=text id="ExpirationYear" size=4 value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='ExpirationYear'>"  onblur="validateNotEmpty('ExpirationYear');" /> <span style="font-weight:normal;font-style:italic;font-size:12px;">(mm/yyyy)</td>
+			<td style="padding:2px;">Security Code:</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CreditCardCCV'>" id="CreditCardCCV" type=text size="3"  onblur="validateNotEmpty('CreditCardCCV');" name="CreditCardccv" /></td>
+			
+		</tr>
+		</table>
+		</div>
+		<table border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+		<tr>
+			<td style="padding:2px;">Ship Via:</td>
+			<td style="padding:2px;">
+				<select style="font-size:8pt;border-width:1px;"  id="ShipVia" >
+					<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="ShipVia" StaticValues="UP1,UP3,CRG" StaticNames="UPS Ground,UPS Ground Third Party (provide account # in comments field),Customer Routing Guide">
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:2px;" nowrap>Comments/Packing Instructions:</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;"  type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='Comments'>" name="Comments" id="Comments"  size=50/></td>
+		</tr>
+		<tr>
+			<td style="padding:2px;">&nbsp;</td>
+			<td style="padding:2px;"><font color="darkred"><b>*NOTE:</b> This is an automated order system.  Your comments in "Comments/Packing Instructions" <u><b>will not be seen by customer service</b></u>. If your order requires special handling please contact customer service before placing your order at 714-947-8156. </font></td>
+		</tr>
+		<tr style="display:none;">
+			<td style="padding:2px;" colspan=2><dl:DataSetCheckboxColumn DataSet="ActiveOrder" TableName="Header" DOMIDName="HoldOrder" Name="HoldOrder">&nbsp;Place order on Processing Decision Hold</td>
+		</tr>
+		<tr style="display:none;">
+			<td style="padding:2px;">Label Type:</td>
+			<td style="padding:2px;">
+				<select style="font-size:8pt;border-width:1px;"  id="LabelType" >
+					<dl:DataSetColumnSelectList DataSet="ActiveOrder" TableName="Header" Name="LabelType" StaticValues="S,P" StaticNames="Standard, Prepack">
+				</select>
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;display:none;"> 
+		<tr>
+			<td style="padding:2px;">Customer Dept (Optional):</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;"  type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CustomerDept'>" name="CustomerDept" id="CustomerDept" size=50/></td>
+			<td style="padding:2px;">Customer Label 1 (Optional):</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;"  type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CustomerOpt1'>" name="CustomerOpt1" id="CustomerOpt1" size=50/></td>					
+		</tr>
+		<tr>
+			<td style="padding:2px;">Customer Label 2 (Optional):</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;"  type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CustomerOpt2'>" name="CustomerOpt2" id="CustomerOpt2" size=50/></td>
+			<td style="padding:2px;">Customer Label 3 (Optional):</td>
+			<td style="padding:2px;"><input style="font-size:8pt;border-width:1px;"  type="text" value="<dl:DataSetColumn DataSet='ActiveOrder' TableName='Header' Name='CustomerOpt3'>" name="CustomerOpt3" id="CustomerOpt3" size=50/></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td colspan=2><br><br><div id="lineitemsajax" name="lineitemsajax"></div></td>
+</tr>
+<tr>
+	<td colspan=2><br><br><p align=right>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>Upload</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<a title="Continue Shopping" href="./sales.ShoppingCanvas.dl?t=Start">Continue Shopping</a>
+			<a title="Cancel Order" href="./sales.upload.dl?t=Edit"><img src="./static/images/btn_cancel.jpg" width=110 height=20></a>
+			<input type=image src="./static/images/btn_savechanges.jpg" width=110 height=20 title="Save Changes" value="Preview Order" onclick="if(FinalCheck() == true) {ProcessUploadHeaderForm();} else {alert('Order Quantity Error:  Some items are required to be ordered in multiples of 6, 12, 24 etc.  Please check that all item size quantities are appropriate to the order multiple.');}" />
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>Edit</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<a class="btn-blue" title="Cancel Changes" href="./sales.ShoppingCanvas.dl?t=ReStart">Cancel Changes</a>
+			<a class="btn-green" title="Update Order" value="Update Order" href="" onclick="if (document.getElementById('CreditCardNumbertxt').value.indexOf('*') == -1) {document.getElementById('CreditCardNumber').value = document.getElementById('CreditCardNumbertxt').value;}   if(FinalCheck() == true) {ProcessHeaderForm();return false;} else {alert('Order Quantity Error:  Some items are required to be ordered in multiples of 6, 12, 24 etc.  Please check that all item size quantities are appropriate to the order multiple.');}" >Update Order</a>
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>New</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<a class="btn-blue" title="Continue Shopping" href="./sales.ShoppingCanvas.dl?t=View">Continue Shopping</a>
+			<a class="btn-green" title="Proceed to Checkout" value="Preview Order" href="" onclick="if (document.getElementById('CreditCardNumbertxt').value.indexOf('*') == -1) {document.getElementById('CreditCardNumber').value = document.getElementById('CreditCardNumbertxt').value;}   if(FinalCheck() == true) {ProcessHeaderForm();return false;} else {alert('Order Quantity Error:  Some items are required to be ordered in multiples of 6, 12, 24 etc.  Please check that all item size quantities are appropriate to the order multiple.');}" >Proceed to Checkout</a>
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+	</td>
+</tr>
+</table>
+</form>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

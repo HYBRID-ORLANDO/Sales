@@ -1,0 +1,46 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head>
+<body>    
+<header id="heading" role="banner" class="row">
+    <dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+    <dl:Include File="ShoppingCanvas-IDStub.dlwe">
+    <dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+<b><u>Orders Uploaded Sucsessfully!</u></b><br><br>
+<dl:DataSet Name="ActiveUpload" TableName="Orders">
+<dl:DataSetHeader>                    
+	<p class="homeheader">Orders Received</p>                       
+	<table border=1 width=100% bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1" style="font-size:10pt;">
+	<tr class="tableheader">
+		<th style="font-weight:bold;">&nbsp;</th>
+		<th style="font-weight:bold;">Order #</th>
+		<th style="font-weight:bold;">Status</th>
+		<th style="font-weight:bold;" align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Line Items</th>
+		<th style="font-weight:bold;" align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+	</tr>
+</dl:DataSetHeader>
+<dl:DataSetRow>
+        <tr>
+		<td><a title="View Order" href="./sale.sorder.dl?T=ViewOrder&OrderID=<dl:DataSetColumn Name=OrderID>" style="margin-right:5px;"><img src="./static/images/btn_view.gif" style="vertical-align:middle;" alttext="View Order"></a><a title="View Order" href="./sales.order.dl?T=ViewOrder&OrderID=<dl:DataSetColumn Name=OrderID>"></td>
+		<td align=center><dl:DataSetColumn Name=orderid></td>
+		<td align=center><dl:DataSetColumn Name="statustext" /></td>
+		<td align=right><dl:DataSetColumn Name="lineitems" format="{0:n0}"/></td>
+		<td align=right><dl:DataSetColumn Name="ordertotal" format="{0:C2}" /></td>
+        </tr>
+</dl:DataSetRow>               
+<dl:DataSetFooter>
+	<tr class=tableheader>
+		<td colspan=3 align=right><b>Total</b></td>
+		<td align=right><b><dl:DataSetColumnSummary Name="lineitems" format="{0:n0}"/></b></td>
+		<td align=right><b><dl:DataSetColumnSummary Name="ordertotal" format="{0:C2}" /></b></td>
+        </tr>
+</TABLE>
+</dl:DataSetFooter>
+<dl:DataSetEmptyTemplate>
+	<tr><th class="emptytext" colspan=3>No orders were received, please check Errors/Warnings above.</p></th></tr>
+</dl:DataSetEmptyTemplate>
+</dl:DataSet>        
+<font size=3>All orders above were posted, please select a menu option above.</font>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

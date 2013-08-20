@@ -1,0 +1,115 @@
+<tr>
+	<td width=50% valign=top><b><u>Bill To Information</u></b><br><br>
+	<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+	<tr>
+		<td nowrap style="padding:2px;">Name</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="BillToName"></b></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="BillToAddress"></b></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address 2</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="BillToAddress2"></b></td>
+	</tr>
+	<tr>
+		<td nowrap valign=top style="padding:2px;">City, State, Zip, Country</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="BillToCity">,&nbsp;<dl:DataSetColumn Name="BillToState">&nbsp;&nbsp;<dl:DataSetColumn Name="BillToZip">&nbsp;&nbsp;&nbsp;<dl:DataSetColumn Name="BillToCountry"></b></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Phone</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="BillToPhone"></b></td>
+	</tr>
+	</table>
+	</td>
+	<td width=50% valign=top><b><u>Ship To Information</u></b><br><br>
+	<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+	<tr>
+		<td nowrap style="padding:2px;">Name</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="ShipToName"></b></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="ShipToAddress"></b></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">Address 2</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="ShipToAddress2"></b></td>
+	</tr>
+	<tr>
+		<td nowrap style="padding:2px;">City, State, Zip</td>
+		<td style="padding:2px;"><b><dl:DataSetColumn Name="ShipToCity">,&nbsp;<dl:DataSetColumn Name="ShipToState">&nbsp;&nbsp;<dl:DataSetColumn Name="ShipToZip"></b></td>
+	</tr>
+	<tr>
+		<td style="padding:2px;">&nbsp;</td>
+		<td style="padding:2px;">&nbsp;</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td colspan=2>
+		<br><BR><br><b><u>Order Information</u></b>
+		<dl:Conditional>
+			<dl:ConditionalCondition><dl:DataSetColumn Name=".VPSINVOICEID"></dl:ConditionalCondition>
+			<dl:ConditionalValue></dl:ConditionalValue>
+			<dl:ConditionalDoesntMatchTemplate>
+				&nbsp; (Invoice # <dl:DataSetColumn Name=".VPSINVOICEID">)
+			</dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+		<br><br>
+			<dl:Conditional>
+			<dl:ConditionalCondition><dl:DataSetColumn Name="terms"></dl:ConditionalCondition>
+			<dl:ConditionalValue>ssp</dl:ConditionalValue>
+			<dl:ConditionalMatchestemplate>
+				<br>
+				<font color=darkred><b>Credit Card Customers:</b>  Your card will only be charged when your order ships. When placing an order, we will <u><b>charge and reverse</b></u> $1.00 to validate the card.</font>
+				<br><br>
+			</dl:ConditionalMatchestemplate>
+			</dl:Conditional>	
+		
+
+		
+		<table width="100%" border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+		<tr>
+			<td style="padding:2px;">Customer PO:</td>
+			<td style="padding:2px;"><b><dl:DataSetColumn Name="CustomerPO"></b></td>
+			<td style="padding:2px;">Terms:</td>
+			<td style="padding:2px;"><b><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="terms" ListSource="Column" ListSourceDataSet="CustomerMaster" ListSourceDataSetTableName="Terms" ListSourceValueColumn="PORTALTERMSCODE" ListSourceValueDisplayColumn="DESCRIPTION">&nbsp;</b></td>
+			<td style="padding:2px;">Start Ship Date:</td>
+			<td style="padding:2px;"><b><dl:DataSetColumn Name="startshipdate" Format='{0:d}'>&nbsp; <dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="CanShipEarly" StaticValues="0,1" StaticNames=" ,(Can Ship Early)"></b></td>
+			<td style="padding:2px;">Cancel Date:</td>
+			<td style="padding:2px;"><b><dl:DataSetColumn Name="canceldate" Format='{0:d}'>&nbsp;</b></td>
+			<td style="padding:2px;">Ship Via:</td>
+			<td style="padding:2px;"><b><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="shipvia" StaticValues="UP1,UP3,CRG" StaticNames="UPS Ground,UPS Ground Third Party,Customer Routing Guide"></b></td>
+		</tr>
+		<dl:Conditional>
+			<dl:ConditionalCondition><dl:DataSetColumn Name="terms"></dl:ConditionalCondition>
+			<dl:ConditionalValue>wiretr</dl:ConditionalValue>
+			<dl:ConditionalMatchestemplate>
+				<tr>
+					<td class="tabletermsleft" colspan="2" valign=top>Wire Instructions:</td>
+					<td class="tabletermsright" colspan="8" valign=top>
+						Beneficiary:<br />
+						Hybrid Promotions, LLC<br />
+						Bank Name: Wachovia Bank<br />
+						Address: 9001 Firestone Blvd., Suite 102 Downey, CA  90241<br />
+						Branch: Downey<br />
+						Account #: 2006000072564<br />
+						Fed Routing No.: 122287170<br />
+						Swift Code: PNBPUS33<br />
+					</td>
+				</tr>
+			</dl:ConditionalMatchestemplate>
+		</dl:Conditional>
+		<tr>
+			<td colspan=2 style="padding:2px;">Shipping Instructions</td>
+			<td colspan=8 style="padding:2px;"><b><dl:DataSetColumn Name="comments"></b></td>
+		</tr>
+		<tr>
+			<td colspan=10 style="padding:2px;"><b><dl:DataSetColumnSelectValue DataSet="ActiveOrder" TableName="Header" Name="HoldOrder" StaticValues="0,1" StaticNames=" ,Place Order on Processing Decision Hold"></b></td>
+		</tr>
+		</table>
+	</td>
+</tr>

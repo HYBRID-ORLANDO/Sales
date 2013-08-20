@@ -1,0 +1,8 @@
+<ul>
+	<li><a href="./hybrid.homepage.dl?t=view" class="navlink">Home</a></li>
+	<li><a href="./hybrid.order.dl?t=create" class="navlink">Enter Order</a></li>
+	<li><a href="./hybrid.inventory.dl?t=levels" class="navlink">Inventory</a></li>
+	<li><a href="./hybrid.order.dl?t=BrowseRecent" class="navlink">Order Status</a></li>
+	<li>Invoice Copy</li>
+	<li><a href="./hybrid.logout.dl" class="navlink">Logout</a></li>
+</ul>

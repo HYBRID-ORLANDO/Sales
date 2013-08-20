@@ -1,0 +1,52 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head>
+        <body>
+        <header id="heading" role="banner" class="row">
+            <dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+        </header>
+        <section id="main" role="content" class="row">
+            <div class='text onecol ' >
+            </div>
+            <div class="text fivecol about">
+                <h2 class="company-title">Wholesale Portal</h2>
+		<p><b>Welcome to the Hybrid Wholesale Portal</b></p>
+		<p>This portal is <b><font color=red>ONLY</font></b> to be accesssed by authorized individuals.
+		All activity on this portal is strictly monitored and any unauthorized use or attempt to gain unauthorized access will be pursued to the fullest extent of the law.</P>
+		<p>If you are having difficulties accessing your account, please <a href="mailto:wholesale@hybridapparel.com"><b><u>click here</u></b></a> to contact support.</P>
+		<p>If you have reached this page by mistake and are looking for more information about Hybrid Apparel, please visit us at <a href="http://www.hybridapparel.com"><b><u>www.hybridapparel.com</u></b></a>.                
+            </div>
+            <div class='text fivecol ' >
+                <h2 class="company-title">Log In / Register</h2>
+                <font color=red size=4><dl:Session Key="LastFormError"></font>
+                <form action="./sales.login.dl" method=post>
+
+                    <table align=center width=100%>
+                        <tr>
+                            <td colspan=2>&nbsp;</td>
+			</tr>
+                        <tr>
+                            <td nowrap>Email:</td>
+                            <td><input type=text name=email /></td>
+
+                        </tr>
+                        <tr>
+                            <td>Password: </td>
+                            <td><input type=password name=password /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td ><input align=right type=submit value="Login"></td></tr>
+                    </table>
+                </form>
+                <p><strong>Forgot Password?</strong><br>
+		If you forgot your password please email <a href="mailto:wholesale@hybridapparel.com"><b><u>support</b></u></a>. Include the email address used to register, your company's name, billing address and telephone number.  A support team member will attend to your request within the business day.</P>
+		<p><strong>New to the Hybrid Wholesale Portal?</strong><br><a class="btn-blue-sm" href="./sales.Register.dl">Register&nbsp;Now</a><br><br>
+			*To successfully register and gain access to the Hybrid Wholesale Portal, 
+			your account will be verified by Hybrid Apparel team member for eligibility as a reseller customer. Please allow two business days for processing.<br><br>
+			If you previously registered, and wish to check the status of your application, please email <a href="mailto:wholesale@hybridapparel.com"><b><u>support</b></u></a>. 
+			Include the email address used to register, your company's name, billing address and telephone number.</P>
+            </div>
+            <div class='text onecol last' >
+            </div>
+        </section>
+        <dl:Include File="ShoppingCanvas-Footer.dlwe">

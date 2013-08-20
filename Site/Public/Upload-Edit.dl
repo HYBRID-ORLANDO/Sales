@@ -1,0 +1,68 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+</head>
+<body>    
+<header id="heading" role="banner" class="row">
+    <dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+    <dl:Include File="ShoppingCanvas-IDStub.dlwe">
+    <dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row" >
+<b><u>Upload Order Results</u></b><br><br>
+<dl:DataSet Name="ActiveUpload" TableName="Uncorrectable" dontgeneratewhenempty>
+<dl:DataSetHeader>                    
+	<div style="font-size:10pt;">
+        <b>Errors/Warnings</b>                       
+        <table border=1 width=100% bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1">    
+</dl:DataSetHeader>
+<dl:DataSetRow><tr><td><dl:DataSetColumn HTMLENcode name="ERROR"></td></tr></dl:DataSetRow>       
+<dl:DataSetFooter>
+	</table>
+	</div>
+	<br />
+</dl:DataSetFooter>
+</dl:DataSet>
+<dl:DataSet Name="ActiveUpload" TableName="Orders">
+<dl:DataSetHeader>                    
+	<br><b><u>Orders Received</u></b><br><br>
+        <table border=1 width=100% bordercolorlight="#000000" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="1" style=font-size:10pt;">
+        <tr class="tableheader">
+		<th style="font-weight:bold;">&nbsp;</th>
+		<th style="font-weight:bold;">Order #</th>
+		<th style="font-weight:bold;">Status</th>
+		<th style="font-weight:bold;" align=left>Error Message</th>
+		<th style="font-weight:bold;" align=left>PO</th>
+    		<th style="font-weight:bold;" align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Line Items</th>
+    		<th style="font-weight:bold;" align=right>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+	</tr>
+</dl:DataSetHeader>
+<dl:DataSetRow>
+	<tr>
+		<td><a title="View Order" href="./sales.upload.dl?T=EditOrder&OrderID=<dl:DataSetColumn Name=SEQUENCE>" style="margin-right:5px;"><img src="./static/images/btn_view.gif" style="vertical-align:middle;" alttext="View Order"></a><a title="View Order" href="./sales.upload.dl?T=RemoveOrder&OrderID=<dl:DataSetColumn Name=SEQUENCE>" style="margin-right:5px;"><img src="./static/images/btn_x.gif" style="vertical-align:middle;" alttext="Delete Order"></a><a title="View Order" href="./sales.upload.dl?T=EditOrder&OrderID=<dl:DataSetColumn Name=sequence>"></td>
+		<td align=center><dl:DataSetColumn Name=orderid></td>
+		<td align=center><dl:DataSetColumn Name="statustext" /></td>
+		<td><dl:DataSetColumn Name="errortext"  SizeLimitText="..."  /></td>
+		<td><dl:DataSetColumn Name="PO"></td>
+		<td align=right><dl:DataSetColumn Name="lineitems" format="{0:n0}"/></td>
+		<td align=right><dl:DataSetColumn Name="ordertotal" format="{0:C2}" /></td>
+        </tr>
+</dl:DataSetRow>               
+<dl:DataSetFooter>
+        <tr class=tableheader>
+                <td colspan=5 align=right><b>Total</b></td>
+	        <td align=right><b><dl:DataSetColumnSummary Name="lineitems" format="{0:n0}"/></b></td>
+        	<td align=right><b><dl:DataSetColumnSummary Name="ordertotal" format="{0:C2}" /></b></td>
+        </tr>
+</TABLE>
+</dl:DataSetFooter>
+<dl:DataSetEmptyTemplate>
+        <tr><th>No orders were received, please check Errors/Warnings above.</th></tr>
+</dl:DataSetEmptyTemplate>
+</dl:DataSet>        
+<br><br>
+Please correct any errors on the above orders, when all errors have been cleared, click on "Finish Upload"  to import all orders listed above.<br>
+<div align=right>
+	<a href="./sales.upload.dl?T=Create"><img src="/static/images/btn_cancelupload.jpg" border=0></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="./sales.Upload.dl?T=PostOrders"><img src="/static/images/btn_finishupload.jpg" border=0></a>
+</div>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

@@ -1,0 +1,89 @@
+<dl:Include File="ShoppingCanvas-PageHeader.dlwe">
+<script type="text/javascript">
+  var SessionID = '<dl:Session ID>';
+</script>
+<script src="/static/Ajax.js" language="JavaScript"></script> 
+</head> 
+<body> 
+<input type=hidden id="ajaxresponse" value="" />
+<header id="heading" role="banner" class="row">
+	<dl:Include File="ShoppingCanvas-HeaderLogo.dlwe">
+	<dl:Include File="ShoppingCanvas-IDStub.dlwe">
+	<dl:Include File="ShoppingCanvas-Menu.dlwe">
+</header>
+<section id="main" role="content" class="row">
+<div style="width:99%;background:#ddd;border:1px solid #333;float:left;">
+	<ul style="margin-left:5px;">
+		<li style="display:inline;font-size:20px;font-weight:bold;margin-right:10px;"><dl:DataSetColumn DataSet="Customermaster" Name="FLNM2s" HTMLENCODE></li>
+	</ul>
+</div><font color=red size=4><dl:Session Key="LastFormError"></font><br><br>
+<dl:Conditional>
+<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+<dl:ConditionalValue>Edit</dl:ConditionalValue>
+<dl:ConditionalMatchestemplate><div style="font-size:14pt;"><font color=red>Your changes to order# HYBRIDCC<dl:DataSetColumn DataSet="ACTIVEORDER" Name=".ORDERID" HTMLENCODE>&nbsp;are not yet saved.<br>To save changes click "Save Changes" at the bottom of this page.<br>If you don't wish to make changes click</font>&nbsp;<a class="btn-blue" title="Cancel Changes" href="./sales.ShoppingCanvas.dl?t=ReStart">Cancel Changes</a></div></dl:ConditionalMatchestemplate>
+<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+</dl:Conditional>
+<table border=0 cellspacing=0 cellpadding=0 width=100% style="font-size:10pt;padding:5px;">
+<dl:DataSet Name="activeorder" TableName="header">
+<dl:DataSetRow>
+<tr>
+	<td colspan=2><div id="AjaxError" style="font-weight:bold;"></div><br><br></td>
+</tr>
+<dl:Include File="Order-Header.dlwe">
+</dl:DataSetRow>
+</dl:DataSet>
+<tr>
+	<td colspan=2>	
+		<dl:Include File="Order-LineItems.dlwe">	
+		<div align=right>
+		<table border=0 cellspacing=0 cellpadding=0 style="font-size:9pt;padding:5px;"> 
+            	<dl:DataSet Name="activeorder" TableName="totals">
+		<dl:DataSetRow>
+		<tr>
+			<td colspan=4 align=RIGHT style="padding:2px;"><b><dl:DataSetColumn Name="Description"></b></td>
+			<td align="right" style="padding:2px;"><dl:DataSetColumn Name="Amount" FORMAT="{0:C}"></td>
+		</tr>
+		</dl:DataSetRow>
+		</dl:DataSet>
+		</table>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td colspan=2><br><br><p align=right>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>Upload</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<a class="btn-blue" title="Edit Order" href="./sales.order.dl?t=edit">Edit Order</a>
+			<a class="btn-blue" title="Continue Shopping" href="./sales.ShoppingCanvas.dl?t=View">Continue Shopping</a>
+			<a class="btn-green" title="Checkout" href="./sales.order.dl?t=postorder">Checkout</a>
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>New</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<a class="btn-blue" title="Edit Order" href="./sales.order.dl?t=edit">Edit Order</a>
+			<a class="btn-blue" title="Continue Shopping" href="./sales.ShoppingCanvas.dl?t=View">Continue Shopping</a>
+			<a class="btn-green" title="Checkout" href="./sales.order.dl?t=postorder">Checkout</a>
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+		<dl:Conditional>
+		<dl:ConditionalCondition><dl:Session Key="OrderType"></dl:ConditionalCondition>
+		<dl:ConditionalValue>Edit</dl:ConditionalValue>
+		<dl:ConditionalMatchestemplate>
+			<a class="btn-blue" title="Edit Order" href="./sales.order.dl?t=edit">Edit Order</a>
+			<a class="btn-blue" title="Cancel Changes" href="./sales.ShoppingCanvas.dl?t=ReStart">Cancel Changes</a>
+			<a class="btn-green" title="Save Changes" href="./sales.order.dl?t=postorder">Save Changes</a>
+		</dl:ConditionalMatchestemplate>
+		<dl:ConditionalDoesntMatchTemplate></dl:ConditionalDoesntMatchTemplate>
+		</dl:Conditional>
+		</p>
+	</td>
+</tr>
+</table>
+</section>
+<dl:Include File="ShoppingCanvas-Footer.dlwe">

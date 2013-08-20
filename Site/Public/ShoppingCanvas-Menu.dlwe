@@ -1,0 +1,25 @@
+﻿<nav id="access" role="navigation">
+		<div class="menu-main-container">
+			<ul id="menu-main" class="menu">
+				
+				
+				
+				<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="./sales.ShoppingCanvas.dl?T=License">Licenses</a>
+				</li>
+				<li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a href="./sales.ShoppingCanvas.dl?T=Start">Shop</a></li>
+				<!--<li id="menu-item-6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6"><a href="./sales.upload.dl?T=Create">Upload</a></li>-->
+				<li id="menu-item-6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6"><a href="./sales.homepage.dl?T=View">My Account</a>
+				<ul class="sub-menu">
+					<li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-lookbooks menu-item-68"><a href="./sales.homepage.dl?T=View">Dashboard</a></li>					
+					<!--<li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-lookbooks menu-item-70"><a href="./sales.homepage.dl?T=Profile">Profile</a></li>-->
+					<li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-lookbooks menu-item-70"><a href="./sales.logout.dl">Sign Out</a></li>
+				</ul>
+				</li>
+				<li id="menu-item-6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6"><a href="./sales.order.dl?t=Edit">Cart</a>
+				<ul class="sub-menu">
+					<li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-lookbooks menu-item-68"><a href="./sales.order.dl?T=Edit">View Cart</a></li>
+					<li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-lookbooks menu-item-68"><a href="./sales.ShoppingCanvas.dl?T=Restart">Empty Cart</a></li>
+					<dl:SessionView Key="sales.LoginType" value="1"><li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-lookbooks menu-item-68"><a href="./sales.Admin.dl?T=Dashboard">Admin</a></li></dl:SessionView>
+				</ul>
+				</li>
+</ul></div>	</nav>
